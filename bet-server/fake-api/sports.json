@@ -1,0 +1,55 @@
+{
+  "success": true,
+  "data": [
+    {
+      "sport": "UEFA_CHAMPIONS_LEAGUE",
+      "sport_group": "Soccer",
+      "display_name": "UEFA Champions"
+    },
+    {
+      "sport": "UEFA_EUROPA_LEAGUE",
+      "sport_group": "Soccer",
+      "display_name": "UEFA Europa"
+    },
+    {
+      "sport": "SERIE_A",
+      "sport_group": "Soccer",
+      "display_name": "Serie A - Italy"
+    },
+    {
+      "sport": "EPL_FA_CUP",
+      "sport_group": "Soccer",
+      "display_name": "FA Cup"
+    },
+    {
+      "sport": "EFL_CHAMP",
+      "sport_group": "Soccer",
+      "display_name": "EFL Championship"
+    },
+    {
+      "sport": "PRIMERA_DIVISION_ARG",
+      "sport_group": "Soccer",
+      "display_name": "Primera División - Argentina"
+    },
+    {
+      "sport": "NBA",
+      "sport_group": "Basketball",
+      "display_name": "NBA"
+    },
+    {
+      "sport": "MLB",
+      "sport_group": "Baseball",
+      "display_name": "MLB"
+    },
+    {
+      "sport": "NHL",
+      "sport_group": "Ice Hockey",
+      "display_name": "NHL"
+    },
+    {
+      "sport": "MIXED_MARTIAL_ARTS",
+      "sport_group": "Mixed Martial Arts",
+      "display_name": "MMA"
+    }
+  ]
+}

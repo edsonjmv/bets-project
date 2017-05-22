@@ -1,0 +1,144 @@
+{
+    "success": true,
+    "data": {
+        "info": {
+            "display_name": "UEFA Europa",
+            "num_outcomes": "3",
+            "check_dt": 1495462212
+        },
+        "events": {
+            "Ajax_Manchester United": {
+                "sport": "UEFA_EUROPA_LEAGUE",
+                "sport_display": "UEFA Europa",
+                "participants": [
+                    "Ajax",
+                    "Manchester United"
+                ],
+                "commence": "1495651500",
+                "status": "Pending",
+                "sites": {
+                    "skybet": {
+                        "odds": {
+                            "h2h": [
+                                "4.60",
+                                "1.85",
+                                "3.50"
+                            ]
+                        },
+                        "last_update": 1495461833
+                    },
+                    "paddypower": {
+                        "odds": {
+                            "h2h": [
+                                "4.75",
+                                "1.80",
+                                "3.60"
+                            ]
+                        },
+                        "last_update": 1495461834
+                    },
+                    "onexbet": {
+                        "odds": {
+                            "h2h": [
+                                "4.82",
+                                "1.87",
+                                "3.64"
+                            ]
+                        },
+                        "last_update": 1495461838
+                    },
+                    "marathonbet": {
+                        "odds": {
+                            "h2h": [
+                                "4.90",
+                                "3.64"
+                            ]
+                        },
+                        "last_update": 1495461844
+                    },
+                    "williamhill": {
+                        "odds": {
+                            "h2h": [
+                                "5.00",
+                                "1.83",
+                                "3.30"
+                            ]
+                        },
+                        "last_update": 1495462098
+                    },
+                    "ladbrokes": {
+                        "odds": {
+                            "h2h": [
+                                "4.50",
+                                "1.83",
+                                "3.40"
+                            ]
+                        },
+                        "last_update": 1495462110
+                    },
+                    "unibet": {
+                        "odds": {
+                            "h2h": [
+                                "4.60",
+                                "1.85",
+                                "3.55"
+                            ]
+                        },
+                        "last_update": 1495462123
+                    },
+                    "nordicbet": {
+                        "odds": {
+                            "h2h": []
+                        },
+                        "last_update": 1495462166
+                    },
+                    "tonybet": {
+                        "odds": {
+                            "h2h": [
+                                "4.55",
+                                "1.85",
+                                "3.50"
+                            ]
+                        },
+                        "last_update": 1495462171
+                    },
+                    "betvictor": {
+                        "odds": {
+                            "h2h": [
+                                "4.60",
+                                "1.80",
+                                "3.50"
+                            ]
+                        },
+                        "last_update": 1495462176
+                    },
+                    "pinnacle": {
+                        "odds": {
+                            "h2h": [
+                                "4.80",
+                                "1.87",
+                                "3.61"
+                            ]
+                        },
+                        "last_update": 1495462208
+                    },
+                    "betfair": {
+                        "odds": {
+                            "h2h": [
+                                "4.90",
+                                "1.85",
+                                "3.47"
+                            ],
+                            "h2h_lay": [
+                                "5.20",
+                                "1.90",
+                                "3.65"
+                            ]
+                        },
+                        "last_update": 1495462210
+                    }
+                }
+            }
+        }
+    }
+}

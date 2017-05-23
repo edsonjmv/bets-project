@@ -2,15 +2,15 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const betSchema = new mongoose.Schema({
-  match_id: {
+const leagueSchema = new mongoose.Schema({
+  name: {
     type: String
   },
-  oddName: {
-    type: Array
+  display_name: {
+    type: String
   },
-  oddValue: {
-    type: Number
+  sport_group: {
+    type: String
   }
 }, {
   timestamps: {
@@ -19,4 +19,4 @@ const betSchema = new mongoose.Schema({
   }
 });
 
-module.exports = mongoose.model('Bet', betSchema);
+module.exports = mongoose.model('League', leagueSchema);

@@ -1,0 +1,40 @@
+{
+  "leagues": [
+    {
+      "id": 12345,
+      "name": "mlb",
+      "display_name": "Major League Baseball",
+      "sport-group": "baseball"
+    },
+    {
+      "id": 12346,
+      "name": "nba",
+      "display_name": "NBA",
+      "sport-group": "basketball"
+    },
+    {
+      "id": 12347,
+      "name": "mma",
+      "display_name": "Mixed Martial Arts",
+      "sport-group": "martial_arts"
+    },
+    {
+      "id": 12348,
+      "name": "serie_a",
+      "display_name": "Serie A",
+      "sport-group": "soccer"
+    },
+    {
+      "id": 12349,
+      "name": "champions_league",
+      "display_name": "UEFA Champions League",
+      "sport-group": "soccer"
+    },
+    {
+      "id": 12350,
+      "name": "europa_league",
+      "display_name": "UEFA Europa League",
+      "sport-group": "soccer"
+    }
+  ]
+}

@@ -10,22 +10,21 @@ export class OddService {
   constructor(private http: Http) { }
 
   getLeagues() {
+    return this.http.get(`${this.BASE_URL}/leagues`)
+      .map((res) => {
+        console.log(res.json())
+        return res.json()
+      });
+  }
+
+  getOdds() {
     return this.http.get(`${this.BASE_URL}/odds`)
-      .map((res) => res.json().data);
+      .map((res) => {
+        return res.json()
+      });
   }
 
-  getNBA() {
-    return this.http.get(`${this.BASE_URL}/odds/nba`)
-      .map((res) => res.json().data.events);
-  }
-
-  getMLB() {
-    return this.http.get(`${this.BASE_URL}/odds/mlb`)
-      .map((res) => res.json().data.events);
-  }
-
-  getSerieA() {
-    return this.http.get(`${this.BASE_URL}/odds/serie-a`)
-      .map((res) => res.json().data.events);
+  oddClick() {
+    console.log('click');
   }
 }

@@ -5,29 +5,21 @@
 
   <!-- Left bar -->
   <div class='col-md-3'>
-    <div *ngFor="let league of leagues">
-      <a routerLink='/{{league.sport}}'>{{league.display_name}}</a>
-    </div>
+    <app-left-bar></app-left-bar>
   </div>
 
-  <!-- Content -->
+  <!-- Main bar -->
   <div class='col-md-6'>
+
     <div *ngFor="let odd of odds">
-      <p>------------------</p>
-      <p>{{odd.commence}}</p>
-      <p>{{odd.sport_display}}</p>
-      <p>{{odd.participants[1]}} vs {{odd.participants[0]}}</p>
-      <span *ngIf='odd.sites.ladbrokes'><button (click)="onClick($event)">{{odd.participants[1]}}: {{odd.sites.ladbrokes.odds.h2h[1]}}</button><button (click)="onClick($event)">{{odd.participants[0]}}: {{odd.sites.ladbrokes.odds.h2h[0]}}</button></span>
+        <app-main-bar [odd]="odd"></app-main-bar>
+        <button (click)="announce()">Announce</button>
     </div>
   </div>
-
-  <!-- <span *ngIf='odd.sites.betfair.odds.h2h[2]'></button>Tie:<button (click)="onClick($event)">{{odd.sites.betfair.odds.h2h[2]}}</span> -->
 
   <!-- Right bar -->
   <div class='col-md-3'>
-    <ul>
-      <li class='ticket-list' *ngFor='let ticket of tickets'>{{ticket}}</li>
-    </ul>
+    <app-right-bar></app-right-bar>
   </div>
 
 </div> <!-- Closing container box -->

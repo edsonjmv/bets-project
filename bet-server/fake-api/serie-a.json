@@ -1,0 +1,37 @@
+{
+  "events": [
+    {
+        "id_match": "323",
+        "participants": [
+          "Juventus",
+          "Napoli"
+        ],
+        "status": "Pending",
+        "odds": {
+          "h2h": ["1.69", "2.20", "3.45"]
+        }
+    },
+    {
+        "id_match": "324",
+        "participants": [
+          "AC Milan",
+          "Internazionale"
+        ],
+        "status": "Pending",
+        "odds": {
+          "h2h": ["1.47", "2.05", "4.65"]
+        }
+    },
+    {
+        "id_match": "325",
+        "participants": [
+          "AS Roma",
+          "Lazio"
+        ],
+        "status": "Pending",
+        "odds": {
+          "h2h": ["1.35", "2.50", "4.80"]
+        }
+    }
+  ]
+}

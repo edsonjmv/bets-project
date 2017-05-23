@@ -9,6 +9,7 @@ const bodyParser = require('body-parser');
 require('./configs/database');
 
 const index = require('./routes/index');
+const leaguesRoutes = require('./api/league/index');
 const oddRoutes = require('./api/odd/index');
 
 const cors = require('cors');
@@ -30,6 +31,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
+app.use('/leagues', leaguesRoutes);
 app.use('/odds', oddRoutes);
 
 // catch 404 and forward to error handler

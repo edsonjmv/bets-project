@@ -1,53 +1,31 @@
 /*jshint esversion: 6*/
-const $ = require("jquery");
-const fs = require("fs");
+const _ = require('lodash');
+const oddModel = require('./odd.model');
 
-function readJSONFile(filename, callback) {
-  require("fs").readFile(filename, function(err, data) {
-    if (err) {
-      callback(err);
-      return;
-    }
-    try {
-      callback(null, JSON.parse(data));
-    } catch (exception) {
-      callback(exception);
-    }
-  });
-}
-
-exports.getSports = function(req, res, next) {
-  readJSONFile('./fake-api/sports.json', function(err, json) {
+exports.getOdds = function(req, res, next) {
+  oddModel.find({}, function(err, odds) {
     if (err) {
       return res.json(err);
     }
-    return res.json(json);
+    return res.json(odds);
   });
 };
 
-exports.getMLB = function(req, res, next) {
-  readJSONFile('./fake-api/MLB.json', function(err, json) {
-    if (err) {
-      return res.json(err);
-    }
-    return res.json(json);
+exports.createOdd = function(req, res, next) {
+  const {
+    league_id,
+    participants,
+    status,
+    odds
+  } = req.body;
+  const newOdd = new oddModel({
+    league_id:league_id,
+    participants:participants,
+    status:status,
+    odds:odds
   });
-};
 
-exports.getNBA = function(req, res, next) {
-  readJSONFile('./fake-api/NBA.json', function(err, json) {
-    if (err) {
-      return res.json(err);
-    }
-    return res.json(json);
-  });
-};
-
-exports.getSerieA = function(req, res, next) {
-  readJSONFile('./fake-api/SERIE_A.json', function(err, json) {
-    if (err) {
-      return res.json(err);
-    }
-    return res.json(json);
+  newOdd.save().then(odd => {
+    return res.status(201).json(odd);
   });
 };

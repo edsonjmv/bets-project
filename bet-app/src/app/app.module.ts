@@ -10,11 +10,19 @@ import { AppComponent } from './app.component';
 import { BoardComponent } from './board/board.component';
 
 import { OddService } from './odd.service';
+import { TicketService } from './ticket.service';
+
+import { LeftBarComponent } from './left-bar/left-bar.component';
+import { MainBarComponent } from './main-bar/main-bar.component';
+import { RightBarComponent } from './right-bar/right-bar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    BoardComponent
+    BoardComponent,
+    LeftBarComponent,
+    MainBarComponent,
+    RightBarComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +30,7 @@ import { OddService } from './odd.service';
     HttpModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [OddService],
+  providers: [OddService, TicketService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

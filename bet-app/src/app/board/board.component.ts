@@ -1,48 +1,33 @@
 import { Component, OnInit } from '@angular/core';
 import { OddService } from '../odd.service';
+import { TicketService } from '../ticket.service';
+
 
 @Component({
   selector: 'app-board',
   templateUrl: './board.component.html',
   styleUrls: ['./board.component.scss'],
-  providers: [OddService]
+  providers: [OddService, TicketService]
 })
 export class BoardComponent implements OnInit {
-  leagues;
   odds;
-  tickets: Array<any> = [];
+  ticket: string[] = [];
+  nextOdd = 0;
 
-  constructor(private odd: OddService) { }
+  constructor(private odd: OddService, private tick: TicketService) { }
 
   ngOnInit() {
-    this.odd.getLeagues()
-      .subscribe((leagues) => {
-        this.leagues = (<any>Object).values(leagues);
-        console.log(leagues);
-      });
-
-    // this.odd.getNBA()
-    //   .subscribe((odds) => {
-    //     this.odds = (<any>Object).values(odds);
-    //     console.log(odds);
-    //   });
-
-    this.odd.getMLB()
+    this.odd.getOdds()
       .subscribe((odds) => {
-        this.odds = (<any>Object).values(odds);
-        console.log(odds);
+        this.odds = odds;
       });
-
-    // this.odd.getSerieA()
-    //   .subscribe((odds) => {
-    //     this.odds = (<any>Object).values(odds);
-    //     console.log(odds);
-    //   });
   }
 
-  onClick(event) {
-    console.log(event.target.textContent);
-    this.tickets.push(event.target.textContent);
-    }
+  announce() {
+    let odd = this.odds[this.nextOdd++];
+    this.tick.announceOdd(odd);
+    this.ticket.push(`Odd "${odd}" announced`);
+    if (this.nextOdd >= this.odds.length) { this.nextOdd = 0; }
+  }
 
 }

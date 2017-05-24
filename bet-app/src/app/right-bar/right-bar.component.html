@@ -1,5 +1,9 @@
 <div class='ticket-container'>
 
-  <p>{{ticket}}</p>
+  <p>Risk: <input type="number" [(ngModel)]="amount" (keyup)="getTotal($event)"> - Prize: <span>{{price}}</span></p>
+
+  <div *ngFor="let choose of betChoosen">
+      <p>{{choose.teamChoose}} <span>{{choose.oddChoose}}</span></p>
+  </div>
 
 </div>

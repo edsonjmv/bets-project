@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { OddService } from '../odd.service';
 import { TicketService } from '../ticket.service';
-
+import * as _ from "lodash";
 
 @Component({
   selector: 'app-board',
@@ -11,11 +11,9 @@ import { TicketService } from '../ticket.service';
 })
 export class BoardComponent implements OnInit {
   odds;
-  ticket: string[] = [];
-  nextOdd = 0;
+  betChoosen: any[] = [];
 
   constructor(private odd: OddService, private tick: TicketService) { }
-
   ngOnInit() {
     this.odd.getOdds()
       .subscribe((odds) => {
@@ -23,11 +21,10 @@ export class BoardComponent implements OnInit {
       });
   }
 
-  announce() {
-    let odd = this.odds[this.nextOdd++];
-    this.tick.announceOdd(odd);
-    this.ticket.push(`Odd "${odd}" announced`);
-    if (this.nextOdd >= this.odds.length) { this.nextOdd = 0; }
+  addOdd(choose) {
+    this.betChoosen.push(choose);
+    this.betChoosen = _.clone(this.betChoosen);
   }
+
 
 }

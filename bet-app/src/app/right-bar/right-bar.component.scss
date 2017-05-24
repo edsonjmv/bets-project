@@ -1,7 +1,30 @@
 $white: #fff;
+$black: #000;
 
 .ticket-container {
   border: 1px solid $white;
-  height: 400px;
+  height: 500px;
   width: 100%;
+}
+
+.ticket-list {
+  list-style: none;
+}
+
+button {
+  color: $black;
+}
+
+.odd-box {
+  border: 1px solid $white;
+  height: 80px;
+  margin-bottom: 30px;
+  padding-top: 10px;
+  text-align: center;
+  width: 100%;
+
+  a {
+    font-size: 20px;
+    margin: 0 30px;
+  }
 }

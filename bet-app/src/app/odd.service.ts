@@ -12,7 +12,6 @@ export class OddService {
   getLeagues() {
     return this.http.get(`${this.BASE_URL}/leagues`)
       .map((res) => {
-        console.log(res.json())
         return res.json()
       });
   }

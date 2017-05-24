@@ -9,6 +9,7 @@ import { OddService } from '../odd.service';
 })
 export class MainBarComponent implements OnInit {
   @Input() odd: any;
+  @Output() onAdd = new EventEmitter();
   odds;
 
   constructor(private oddServ: OddService) { }
@@ -19,4 +20,9 @@ export class MainBarComponent implements OnInit {
         this.odds = odds;
       });
   }
+
+  onOddAdd(teamChoose, oddChoose) {
+    this.onAdd.emit({teamChoose, oddChoose})
+  }
+
 }

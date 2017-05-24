@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
 
 import { TicketService } from '../ticket.service';
 import { Subscription }   from 'rxjs/Subscription';
@@ -10,18 +10,36 @@ import { Subscription }   from 'rxjs/Subscription';
   providers: [TicketService]
 })
 export class RightBarComponent implements OnInit {
-  @Input() astronaut: string;
-  ticket = '';
-  subscription: Subscription;
+  @Input() betChoosen: any;
+  amount: any = 0;
+  calculator=0;
+  price: number = 1;
 
-  constructor(private tick: TicketService) {
-    this.subscription = tick.oddAnnounced$.subscribe(
-      ticket => {
-        this.ticket = ticket;
-    });
+  constructor() {
   }
 
   ngOnInit() {
+    this.calculator = this.price;
   }
+
+  ngOnChanges (change) {
+    this.getTotal();
+
+  }
+
+  getTotal(){
+    let total = 0;
+    total = this.betChoosen.reduce((acc, el) => {
+      return acc *= parseFloat(el.oddChoose);
+    }, 1)
+    console.log(this.price)
+    this.price = this.amount * total;
+  }
+
+  // onInputChange () {
+  //   get all the values in the list
+  //   calculate
+  //   change price value
+  // }
 
 }

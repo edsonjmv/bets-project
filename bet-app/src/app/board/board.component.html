@@ -12,14 +12,13 @@
   <div class='col-md-6'>
 
     <div *ngFor="let odd of odds">
-        <app-main-bar [odd]="odd"></app-main-bar>
-        <button (click)="announce()">Announce</button>
+        <app-main-bar [odd]="odd" (onAdd)='addOdd($event)'></app-main-bar>
     </div>
   </div>
 
   <!-- Right bar -->
   <div class='col-md-3'>
-    <app-right-bar></app-right-bar>
+    <app-right-bar [betChoosen]="betChoosen"></app-right-bar>
   </div>
 
 </div> <!-- Closing container box -->

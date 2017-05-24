@@ -3,10 +3,6 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const ticketSchema = new mongoose.Schema({
-  creator: {
-    type: Schema.Types.ObjectId,
-    ref: "User"
-  },
   bets: {
     type: Array
   },

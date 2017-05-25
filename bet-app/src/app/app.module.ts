@@ -11,10 +11,12 @@ import { BoardComponent } from './board/board.component';
 
 import { OddService } from './odd.service';
 import { TicketService } from './ticket.service';
+import { SessionService } from "./session.service";
 
 import { LeftBarComponent } from './left-bar/left-bar.component';
 import { MainBarComponent } from './main-bar/main-bar.component';
 import { RightBarComponent } from './right-bar/right-bar.component';
+import { AuthComponent } from './auth/auth.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { RightBarComponent } from './right-bar/right-bar.component';
     BoardComponent,
     LeftBarComponent,
     MainBarComponent,
-    RightBarComponent
+    RightBarComponent,
+    AuthComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +33,7 @@ import { RightBarComponent } from './right-bar/right-bar.component';
     HttpModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [OddService, TicketService],
+  providers: [OddService, TicketService, SessionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

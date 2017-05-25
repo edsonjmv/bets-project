@@ -28,3 +28,40 @@ button {
     margin: 0 30px;
   }
 }
+
+.ticket-head {
+  height: 80px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.ticket-input {
+  float: left;
+  height: 100%;
+  margin-top: 10px;
+  text-align: center;
+  width: 50%;
+
+  input {
+    width: 80%;
+  }
+}
+
+.prize-p {
+  font-size: 30px;
+}
+
+.button-box {
+  margin-top: 20px;
+  width: 100%;
+}
+
+.bet-button {
+  margin-left: 70px;
+  width: 100px;
+}
+
+.risk-number {
+  font-size: 14px;
+  text-align: center;
+}

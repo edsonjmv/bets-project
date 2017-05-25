@@ -3,17 +3,9 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const ticketSchema = new mongoose.Schema({
-  bets: {
-    type: Array
-  },
-  risk: {
-    type: Number,
-    required: true
-  },
-  prize: {
-    type: Number,
-    required: true
-  }
+  bets: Array,
+  risk: Number,
+  prize: Number
 }, {
   timestamps: {
     createdAt: "created_at",

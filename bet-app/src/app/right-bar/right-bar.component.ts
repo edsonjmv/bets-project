@@ -11,15 +11,15 @@ import { Subscription }   from 'rxjs/Subscription';
 })
 export class RightBarComponent implements OnInit {
   @Input() betChoosen: any;
-  amount: any = 0;
+  amount: number = 0;
   calculator=0;
-  price: number = 1;
+  prize: number = 1;
 
-  constructor() {
+  constructor(private ticket: TicketService) {
   }
 
   ngOnInit() {
-    this.calculator = this.price;
+    this.calculator = this.prize;
   }
 
   ngOnChanges (change) {
@@ -28,13 +28,26 @@ export class RightBarComponent implements OnInit {
   }
 
   getTotal(){
-    let total = 0;
+    let total:number = 0;
     total = this.betChoosen.reduce((acc, el) => {
       return acc *= parseFloat(el.oddChoose);
     }, 1)
-    console.log(this.price)
-    this.price = this.amount * total;
+    this.prize = (this.amount * total);
   }
+
+  makeBet(){
+    let betForm = {
+      risk: this.amount,
+      prize: this.prize,
+      bets: this.betChoosen
+    }
+    console.log(betForm);
+    this.ticket.makeBet(betForm).subscribe(
+      (bet) => this.successCb(bet)
+    );
+  }
+
+  successCb(bet) {}
 
   // onInputChange () {
   //   get all the values in the list

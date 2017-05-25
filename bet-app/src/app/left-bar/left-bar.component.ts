@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 import { OddService } from '../odd.service';
 
 @Component({
@@ -8,15 +8,18 @@ import { OddService } from '../odd.service';
   providers: [OddService]
 })
 export class LeftBarComponent implements OnInit {
+  @Input() league: any;
+  @Output() selectSport = new EventEmitter();
   leagues;
 
   constructor(private odd: OddService) { }
 
   ngOnInit() {
-    this.odd.getLeagues()
-      .subscribe((leagues) => {
-        this.leagues = leagues;
-      });
+    
+  }
+
+  onSelectSport(id) {
+    this.selectSport.emit(id)
   }
 
 }

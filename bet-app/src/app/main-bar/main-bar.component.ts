@@ -15,10 +15,7 @@ export class MainBarComponent implements OnInit {
   constructor(private oddServ: OddService) { }
 
   ngOnInit() {
-    this.oddServ.getOdds()
-      .subscribe((odds) => {
-        this.odds = odds;
-      });
+
   }
 
   onOddAdd(teamChoose, oddChoose) {

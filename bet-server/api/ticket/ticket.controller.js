@@ -20,3 +20,12 @@ exports.createTicket = function(req, res, next) {
     });
   });
 };
+
+exports.getTickets = function(req, res, next) {
+  ticketModel.find({}, function(err, tickets) {
+    if (err) {
+      return res.json(err);
+    }
+    return res.json(tickets);
+  });
+};

@@ -3,7 +3,8 @@ const _ = require('lodash');
 const oddModel = require('./odd.model');
 
 exports.getOdds = function(req, res, next) {
-  oddModel.find({}, function(err, odds) {
+  leagueId = req.query.leagueId;
+  oddModel.find({league_id: leagueId}, function(err, odds) {
     if (err) {
       return res.json(err);
     }

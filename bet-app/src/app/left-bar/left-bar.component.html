@@ -1,3 +1,4 @@
-<div class='league-link' *ngFor="let league of leagues">
-  <a routerLink='/{{league.name}}'>{{league.display_name}}</a>
+
+<div class='league-link'>
+  <a href="#" (click)='onSelectSport(league._id)'>{{league.display_name}}</a>
 </div>

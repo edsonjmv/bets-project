@@ -12,12 +12,18 @@ import * as _ from "lodash";
 export class BoardComponent implements OnInit {
   odds;
   betChoosen: any[] = [];
+  leagueId = {
+    id: 0
+  }
+  leagues;
 
   constructor(private odd: OddService, private tick: TicketService) { }
+
+
   ngOnInit() {
-    this.odd.getOdds()
-      .subscribe((odds) => {
-        this.odds = odds;
+    this.odd.getLeagues()
+      .subscribe((leagues) => {
+        this.leagues = leagues;
       });
   }
 
@@ -26,5 +32,11 @@ export class BoardComponent implements OnInit {
     this.betChoosen = _.clone(this.betChoosen);
   }
 
+  getSportsOdd(elem) {
+    this.odd.getOdds(elem)
+    .subscribe((odds) => {
+      this.odds = odds;
+    });
+  }
 
 }

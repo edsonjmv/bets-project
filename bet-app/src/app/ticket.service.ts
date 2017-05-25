@@ -24,4 +24,11 @@ export class TicketService {
       .catch(this.handleError);
   }
 
+  getTickets() {
+    return this.http.get(`${this.BASE_URL}/ticket`)
+      .map((res) => {
+        return res.json()
+      });
+  }
+
 }

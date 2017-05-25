@@ -16,8 +16,8 @@ export class OddService {
       });
   }
 
-  getOdds() {
-    return this.http.get(`${this.BASE_URL}/odds`)
+  getOdds(id) {
+    return this.http.get(`${this.BASE_URL}/odds?leagueId=${id}`)
       .map((res) => {
         return res.json()
       });

@@ -1,4 +1,4 @@
-<h1> Authentication Sample </h1>
+<!-- <h1> Authentication Sample </h1>
 <form *ngIf="!user">
   <h2> Login or Signup </h2>
   <label> Username </label>
@@ -22,4 +22,28 @@
   <button (click)="getPrivateData()"> Get private data </button>
 </div>
 
-<p class="error"> {{ error }} </p>
+<p class="error"> {{ error }} </p> -->
+
+<div class="container">
+<div class="form">
+  <div id="signup">
+    <h1>Sign Up</h1>
+
+    <form action="/signup" method="post">
+      <div class="field-wrap">
+        <input type="text" placeholder="Username" name="username">
+      </div>
+      <div class="field-wrap">
+        <input type="password" placeholder="Password" name="password">
+      </div>
+      <button type="submit" class="button button-block">Get Started</button>
+    </form>
+
+    <br>
+    <p style='float: right;'>
+      Already have an account?
+      <a href="/login">Log in.</a>
+    </p>
+  </div>
+</div>
+</div>

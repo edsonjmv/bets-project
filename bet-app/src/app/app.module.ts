@@ -17,6 +17,8 @@ import { LeftBarComponent } from './left-bar/left-bar.component';
 import { MainBarComponent } from './main-bar/main-bar.component';
 import { RightBarComponent } from './right-bar/right-bar.component';
 import { AuthComponent } from './auth/auth.component';
+import { TicketsComponent } from './tickets/tickets.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { AuthComponent } from './auth/auth.component';
     LeftBarComponent,
     MainBarComponent,
     RightBarComponent,
-    AuthComponent
+    AuthComponent,
+    TicketsComponent,
+    NavBarComponent
   ],
   imports: [
     BrowserModule,

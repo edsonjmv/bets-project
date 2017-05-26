@@ -19,9 +19,9 @@
         <li><a routerLink='tickets'>Tickets</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a routerLink="login">Login</a></li>
-        <li><a routerLink="signup">Signup</a></li>
-        <li><a routerLink="/" (click)='logout()'>Logout</a></li>
+        <li *ngIf="!user"><a routerLink="login">Login</a></li>
+        <li *ngIf="!user"><a routerLink="signup">Signup</a></li>
+        <li *ngIf="user"><a routerLink="/" (click)='logout()'>Logout</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

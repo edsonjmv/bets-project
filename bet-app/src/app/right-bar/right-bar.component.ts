@@ -44,13 +44,12 @@ export class RightBarComponent implements OnInit {
       bets: this.betChoosen
     }
     this.ticket.makeBet(betForm).subscribe(
-      (bet) => this.successCb(bet)
+      (bet) => {
+        this.successCb(bet);
+        this.router.navigate(['/tickets']);
+      }
     );
     $(".choose-boxes").remove();
-  }
-
-  goToHome() {
-    this.router.navigate(['/tickets']);
   }
 
   successCb(bet) {}

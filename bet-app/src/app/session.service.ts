@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
@@ -9,7 +9,13 @@ export class SessionService {
   BASE_URL: string = 'http://localhost:3000/auth';
   users: any;
 
+  loginEvent: EventEmitter<any> = new EventEmitter();
+
   constructor(private http: Http) { }
+
+  getLoginEmitter(): EventEmitter<any> {
+    return this.loginEvent;
+  }
 
   handleError(e) {
     return Observable.throw(e.json().message);
@@ -28,13 +34,13 @@ export class SessionService {
   }
 
   logout() {
-    return this.http.post(`${this.BASE_URL}/logout`, {withCredentials:true})
+    return this.http.post(`${this.BASE_URL}/logout`, {}, {withCredentials:true})
       .map(res => res.json())
       .catch(this.handleError);
   }
 
   isLoggedIn() {
-    return this.http.get(`${this.BASE_URL}/loggedin`,{withCredentials:true})
+    return this.http.get(`${this.BASE_URL}/loggedin`, {withCredentials:true})
       .map(res => res.json())
       .catch((err) => this.handleError(err));
   }

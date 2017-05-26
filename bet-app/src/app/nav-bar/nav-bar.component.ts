@@ -18,6 +18,10 @@ export class NavBarComponent implements OnInit {
       .subscribe(
         (user) => this.successCb(user)
       );
+
+      this.session.getLoginEmitter().subscribe(
+        user => this.successCb(user)
+      )
   }
 
   logout() {

@@ -19,7 +19,6 @@ export class BoardComponent implements OnInit {
 
   constructor(private odd: OddService, private tick: TicketService) { }
 
-
   ngOnInit() {
     this.odd.getLeagues()
       .subscribe((leagues) => {
@@ -28,7 +27,12 @@ export class BoardComponent implements OnInit {
   }
 
   addOdd(choose) {
-    this.betChoosen.push(choose);
+    let values = this.betChoosen.map(function(o) { return (o.teamChoose === choose.teamChoose) ? true : false ; });
+    if (values[0]) {
+      this.betChoosen.splice(this.betChoosen.indexOf(choose.teamChoose, 1));
+    } else {
+      this.betChoosen.push(choose);
+    }
     this.betChoosen = _.clone(this.betChoosen);
   }
 
@@ -38,5 +42,4 @@ export class BoardComponent implements OnInit {
       this.odds = odds;
     });
   }
-
 }

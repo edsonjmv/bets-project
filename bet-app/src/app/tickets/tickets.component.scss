@@ -1,0 +1,13 @@
+$white: #fff;
+
+.ticket-boxes {
+  border: 1px solid $white;
+  box-sizing: border-box;
+  height: 400px;
+  margin: 10px;
+
+  li {
+    list-style: none;
+  }
+
+}

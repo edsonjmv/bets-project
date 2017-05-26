@@ -18,5 +18,4 @@ tickets;
         this.tickets = tickets;
       });
   }
-
 }

@@ -11,7 +11,8 @@
 
   <!-- Main bar -->
   <div class='col-md-6'>
-    <div class="title-main" *ngIf="odds === undefined"><h1>Select your league!</h1></div>
+    <div class="title-main" *ngIf="odds === undefined">
+      <h1>Select your league!</h1></div>
     <div *ngFor="let odd of odds">
       <app-main-bar [odd]="odd" (onAdd)='addOdd($event)'></app-main-bar>
     </div>
@@ -22,4 +23,5 @@
     <app-right-bar [betChoosen]="betChoosen"></app-right-bar>
   </div>
 
-</div> <!-- Closing container box -->
+</div>
+<!-- Closing container box -->

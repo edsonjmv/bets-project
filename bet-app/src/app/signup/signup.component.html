@@ -1,0 +1,20 @@
+
+<form *ngIf="!user">
+  <h2> Signup </h2>
+  <label> Username </label>
+  <input type="text" [(ngModel)]="formInfo.username" name="username"/>
+  <br>
+  <label> Password </label>
+  <input type="password" [(ngModel)]="formInfo.password" name="password"/>
+
+  <button (click)="signup()"> signup </button>
+</form>
+
+<div *ngIf="user">
+  <h2> You are now logged in as {{ user.username }}!! </h2>
+
+  <button (click)="logout()"> logout </button>
+  <button (click)="getPrivateData()"> Get private data </button>
+</div>
+
+<p class="error"> {{ error }} </p>

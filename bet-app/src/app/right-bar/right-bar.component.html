@@ -1,16 +1,15 @@
 <div class='ticket-container'>
 
   <div class='ticket-head'>
-    <span class='ticket-input'><p>Risk:</p> <input class="risk-number" type="text" [(ngModel)]="amount" (keyup)="getTotal($event)"></span>
+    <span class='ticket-input'><p>Risk:</p> <input class="risk-number" type="text" placeholder="0" [(ngModel)]="amount" (keyup)="getTotal($event)"></span>
     <span class='ticket-input'><p>Prize:</p><p class="prize-p">${{prize}}</p></span>
   </div>
 
-
-  <div *ngFor="let choose of betChoosen">
+  <div class="choose-boxes" *ngFor="let choose of betChoosen">
       <p>{{choose.teamChoose}} <span>{{choose.oddChoose}}</span></p>
   </div>
   <div class="button-box">
-    <button class="bet-button" (click)="makeBet()">Bet</button>
+    <button class="bet-button" (click)="makeBet()" (click)="goToHome()">Bet</button>
 
   </div>
 

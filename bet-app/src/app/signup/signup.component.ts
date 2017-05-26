@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { SessionService } from '../session.service';
 
+
 @Component({
-  selector: 'app-auth',
-  templateUrl: './auth.component.html',
-  styleUrls: ['./auth.component.scss']
+  selector: 'app-signup',
+  templateUrl: './signup.component.html',
+  styleUrls: ['./signup.component.scss']
 })
-export class AuthComponent implements OnInit {
+export class SignupComponent implements OnInit {
   user: any;
   formInfo = {
     username: '',
@@ -18,18 +19,6 @@ export class AuthComponent implements OnInit {
   constructor(private session: SessionService) { }
 
   ngOnInit() {
-    this.session.isLoggedIn()
-      .subscribe(
-        (user) => this.successCb(user)
-      );
-  }
-
-  login() {
-    this.session.login(this.formInfo)
-      .subscribe(
-        (user) => this.successCb(user),
-        (err) => this.errorCb(err)
-      );
   }
 
   signup() {
@@ -65,4 +54,5 @@ export class AuthComponent implements OnInit {
     this.user = user;
     this.error = null;
   }
+
 }

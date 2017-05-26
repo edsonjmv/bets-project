@@ -1,7 +1,9 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
+import { RouterModule, Router } from '@angular/router';
 
 import { TicketService } from '../ticket.service';
 import { Subscription }   from 'rxjs/Subscription';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-right-bar',
@@ -13,9 +15,9 @@ export class RightBarComponent implements OnInit {
   @Input() betChoosen: any;
   amount: number = 0;
   calculator=0;
-  prize: number = 1;
+  prize: any = 1;
 
-  constructor(private ticket: TicketService) {
+  constructor(private ticket: TicketService, private router: Router) {
   }
 
   ngOnInit() {
@@ -32,7 +34,7 @@ export class RightBarComponent implements OnInit {
     total = this.betChoosen.reduce((acc, el) => {
       return acc *= parseFloat(el.oddChoose);
     }, 1)
-    this.prize = (this.amount * total);
+    this.prize = (this.amount * total).toFixed(2);
   }
 
   makeBet(){
@@ -41,18 +43,16 @@ export class RightBarComponent implements OnInit {
       prize: this.prize,
       bets: this.betChoosen
     }
-    console.log(betForm);
     this.ticket.makeBet(betForm).subscribe(
       (bet) => this.successCb(bet)
     );
+    $(".choose-boxes").remove();
+  }
+
+  goToHome() {
+    this.router.navigate(['/tickets']);
   }
 
   successCb(bet) {}
-
-  // onInputChange () {
-  //   get all the values in the list
-  //   calculate
-  //   change price value
-  // }
 
 }

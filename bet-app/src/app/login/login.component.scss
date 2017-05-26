@@ -48,13 +48,7 @@ h1 {
 .button-block {
   display: block;
   margin: 0 auto;
-  width: 80%;
-
-  &:hover {
-    border-radius: 5px;
-    display: block;
-    width: 100%;
-  }
+  width: 100%;
 }
 
 input,

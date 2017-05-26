@@ -8,8 +8,10 @@ const bodyParser = require('body-parser');
 const authRoutes = require('./routes/auth-routes');
 const session    = require('express-session');
 const passport   = require('passport');
+// var MongoStore = require('connect-mongostore')(session);
 
 require('./configs/database');
+require('./config/passport')(passport);
 
 const index = require('./routes/index');
 const leaguesRoutes = require('./api/league/index');
@@ -20,14 +22,28 @@ const cors = require('cors');
 
 const app = express();
 
-app.use(cors());
+var whitelist = [
+    'http://localhost:4200',
+];
+var corsOptions = {
+    origin: function(origin, callback){
+        var originIsWhitelisted = whitelist.indexOf(origin) !== -1;
+        callback(null, originIsWhitelisted);
+    },
+    credentials: true
+};
+app.use(cors(corsOptions));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 const passportSetup = require('./config/passport');
-passportSetup(passport);
+app.use(logger('dev'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(session({
   secret: 'bet app',
@@ -35,17 +51,13 @@ app.use(session({
   saveUninitialized: true,
   cookie : { httpOnly: true, maxAge: 2419200000 }
 }));
+passportSetup(passport);
 
 app.use(passport.initialize());
 app.use(passport.session());
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/leagues', leaguesRoutes);

@@ -17,13 +17,17 @@ exports.createOdd = function(req, res, next) {
     league_id,
     participants,
     status,
-    odds
+    odds,
+    image1,
+    image2
   } = req.body;
   const newOdd = new oddModel({
     league_id:league_id,
     participants:participants,
     status:status,
-    odds:odds
+    odds:odds,
+    image1:image1,
+    image2:image2
   });
 
   newOdd.save().then(odd => {

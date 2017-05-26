@@ -16,9 +16,11 @@ import { SessionService } from "./session.service";
 import { LeftBarComponent } from './left-bar/left-bar.component';
 import { MainBarComponent } from './main-bar/main-bar.component';
 import { RightBarComponent } from './right-bar/right-bar.component';
-import { AuthComponent } from './auth/auth.component';
 import { TicketsComponent } from './tickets/tickets.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -27,9 +29,11 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
     LeftBarComponent,
     MainBarComponent,
     RightBarComponent,
-    AuthComponent,
     TicketsComponent,
-    NavBarComponent
+    NavBarComponent,
+    LoginComponent,
+    SignupComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

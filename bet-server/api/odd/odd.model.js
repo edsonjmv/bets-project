@@ -14,6 +14,12 @@ const oddSchema = new mongoose.Schema({
   },
   odds: {
     type: Array
+  },
+  image1: {
+    type: String
+  },
+  image2: {
+    type: String
   }
 }, {
   timestamps: {

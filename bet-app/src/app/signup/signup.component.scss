@@ -1,0 +1,95 @@
+$form-back: #13232f;
+$green-link: #1ab188;
+$green-dark: darken($green-link, 10%);
+$white: #fff;
+$text-back: #a0b3b0;
+$link-back: ('http://visit.rio/wp-content/uploads/2015/09/9185352778_aa7bd28d1a_k1.jpg');
+$transp-back: rgba(26, 26, 26, .8);
+$white: #fff;
+$black: #000;
+$wall-back: #f7f7f7;
+$login-title: #555;
+$wall-shadow: rgba(0, 0, 0, .3);
+
+.main-form {
+  background: linear-gradient(0deg, $transp-back, $transp-back), url($link-back);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 600px;
+}
+
+.login-form {
+  margin-top: 50px;
+}
+
+.form-signin {
+  margin: 0 auto;
+  max-width: 330px;
+  padding: 15px;
+
+  .form-signin-heading,
+  .checkbox {
+    margin-bottom: 10px;
+  }
+
+  .checkbox {
+    font-weight: normal;
+  }
+
+  input {
+    [type='text'] {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+      margin-bottom: -1px;
+    }
+
+    [type='password'] {
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+      margin-bottom: 10px;
+    }
+  }
+
+  .form-control {
+    box-sizing: border-box;
+    font-size: 16px;
+    height: auto;
+    padding: 10px;
+    position: relative;
+
+    &:focus {
+      z-index: 2;
+    }
+  }
+}
+
+.account-wall {
+  background-color: $wall-back;
+  box-shadow: 0 2px 2px $wall-shadow;
+  margin-top: 20px;
+  padding: 40px 0 20px;
+}
+
+.login-title {
+  color: $login-title;
+  display: block;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.profile-img {
+  border-radius: 50%;
+  display: block;
+  height: 96px;
+  margin: 0 auto 10px;
+  width: 96px;
+}
+
+.need-help {
+  margin-top: 10px;
+}
+
+.new-account {
+  display: block;
+  margin-top: 10px;
+}

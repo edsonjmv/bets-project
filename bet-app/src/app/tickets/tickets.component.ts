@@ -8,7 +8,7 @@ import { TicketService } from '../ticket.service';
   providers: [TicketService]
 })
 export class TicketsComponent implements OnInit {
-tickets;
+  tickets;
   constructor(private ticket: TicketService) { }
 
   ngOnInit() {

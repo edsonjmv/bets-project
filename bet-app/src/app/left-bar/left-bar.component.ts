@@ -15,7 +15,7 @@ export class LeftBarComponent implements OnInit {
   constructor(private odd: OddService) { }
 
   ngOnInit() {
-    
+
   }
 
   onSelectSport(id) {

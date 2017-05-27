@@ -22,25 +22,25 @@ export class MainBarComponent implements OnInit {
   }
 
   onOddAdd(teamChoose, oddChoose) {
-    this.onAdd.emit({teamChoose, oddChoose})
+    this.onAdd.emit({ teamChoose, oddChoose })
   }
 
-toggleHighlight(newValue: number) {
-  if (this.highlightedDiv === newValue) {
-    this.highlightedDiv = 0;
+  toggleHighlight(newValue: number) {
+    if (this.highlightedDiv === newValue) {
+      this.highlightedDiv = 0;
+    }
+    else {
+      this.highlightedDiv = newValue;
+    }
   }
-  else {
-    this.highlightedDiv = newValue;
-  }
-}
 
-toggleHighlight2(newValue: number) {
-  if (this.highlighted2Div === newValue) {
-    this.highlighted2Div = 0;
+  toggleHighlight2(newValue: number) {
+    if (this.highlighted2Div === newValue) {
+      this.highlighted2Div = 0;
+    }
+    else {
+      this.highlighted2Div = newValue;
+    }
   }
-  else {
-    this.highlighted2Div = newValue;
-  }
-}
 
 }

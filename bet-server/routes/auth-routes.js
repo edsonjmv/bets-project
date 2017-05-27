@@ -1,11 +1,11 @@
 /*jshint esversion: 6*/
-const express    = require('express');
-const passport   = require('passport');
-const bcrypt         = require("bcrypt");
-const bcryptSalt     = 10;
+const express = require('express');
+const passport = require('passport');
+const bcrypt = require("bcrypt");
+const bcryptSalt = 10;
 
 // Our user model
-const User       = require('../api/user/user.model');
+const User = require('../api/user/user.model');
 
 const authRoutes = express.Router();
 
@@ -14,17 +14,23 @@ authRoutes.post("/signup", (req, res, next) => {
   var password = req.body.password;
 
   if (!username || !password) {
-    res.status(400).json({ message: "Provide username and password" });
+    res.status(400).json({
+      message: "Provide username and password"
+    });
     return;
   }
 
-  User.findOne({ username }, "username", (err, user) => {
+  User.findOne({
+    username
+  }, "username", (err, user) => {
     if (user !== null) {
-      res.status(400).json({ message: "The username already exists" });
+      res.status(400).json({
+        message: "The username already exists"
+      });
       return;
     }
 
-    var salt     = bcrypt.genSaltSync(bcryptSalt);
+    var salt = bcrypt.genSaltSync(bcryptSalt);
     var hashPass = bcrypt.hashSync(password, salt);
 
     var newUser = User({
@@ -34,7 +40,9 @@ authRoutes.post("/signup", (req, res, next) => {
 
     newUser.save((err) => {
       if (err) {
-        res.status(400).json({ message: "Something went wrong" });
+        res.status(400).json({
+          message: "Something went wrong"
+        });
       } else {
         req.login(newUser, function(err) {
           if (err) {
@@ -51,9 +59,13 @@ authRoutes.post("/signup", (req, res, next) => {
 
 authRoutes.post("/login", function(req, res, next) {
   passport.authenticate('local', function(err, user, info) {
-    if (err) { return next(err); }
+    if (err) {
+      return next(err);
+    }
 
-    if (!user) { return res.status(401).json(info); }
+    if (!user) {
+      return res.status(401).json(info);
+    }
 
     req.login(user, function(err) {
       if (err) {
@@ -68,24 +80,31 @@ authRoutes.post("/login", function(req, res, next) {
 
 authRoutes.post("/logout", function(req, res) {
   req.logout();
-  res.status(200).json({ message: 'Success' });
+  res.status(200).json({
+    message: 'Success'
+  });
 });
 
 authRoutes.get("/loggedin", function(req, res) {
-  if(req.isAuthenticated()) {
+  if (req.isAuthenticated()) {
     return res.status(200).json(req.user);
   }
-
-  return res.status(403).json({ message: 'Unauthorized' });
+  res.status(403).json({
+    message: 'Unauthorized'
+  });
 });
 
 authRoutes.get("/private", (req, res) => {
   console.log(req.session);
-  if(req.isAuthenticated()) {
-    return res.json({ message: 'This is a private message' });
+  if (req.isAuthenticated()) {
+    return res.json({
+      message: 'This is a private message'
+    });
   }
 
-  return res.status(403).json({ message: 'Unauthorized' });
+  return res.status(403).json({
+    message: 'Unauthorized'
+  });
 });
 
 module.exports = authRoutes;

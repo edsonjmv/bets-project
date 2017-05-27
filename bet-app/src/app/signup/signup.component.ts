@@ -24,24 +24,24 @@ export class SignupComponent implements OnInit {
   signup() {
     this.session.signup(this.formInfo)
       .subscribe(
-        (user) => this.successCb(user),
-        (err) => this.errorCb(err)
+      (user) => this.successCb(user),
+      (err) => this.errorCb(err)
       );
   }
 
   logout() {
     this.session.logout()
       .subscribe(
-        () => this.successCb(null),
-        (err) => this.errorCb(err)
+      () => this.successCb(null),
+      (err) => this.errorCb(err)
       );
   }
 
   getPrivateData() {
     this.session.getPrivateData()
       .subscribe(
-        (data) => this.privateData = data,
-        (err) => this.error = err
+      (data) => this.privateData = data,
+      (err) => this.error = err
       );
   }
 

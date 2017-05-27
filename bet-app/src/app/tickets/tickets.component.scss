@@ -1,13 +1,24 @@
 $white: #fff;
 
 .ticket-boxes {
-  border: 1px solid $white;
   box-sizing: border-box;
-  height: 400px;
-  margin: 10px;
+  height: 500px;
+  padding: 20px;
+  text-align: center;
 
   li {
     list-style: none;
   }
+}
 
+.inside-ticket {
+  border: 1px solid $white;
+  height: 95%;
+  width: 80%;
+}
+
+.go-bets {
+  margin-bottom: 20px;
+  margin-top: 20px;
+  text-align: center;
 }

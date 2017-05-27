@@ -1,9 +1,9 @@
 /*jshint esversion: 6*/
 const LocalStrategy = require('passport-local').Strategy;
-const User          = require('../api/user/user.model');
-const bcrypt        = require('bcrypt');
+const User = require('../api/user/user.model');
+const bcrypt = require('bcrypt');
 
-module.exports = function (passport) {
+module.exports = function(passport) {
 
   passport.serializeUser((loggedInUser, cb) => {
     cb(null, loggedInUser._id);
@@ -20,19 +20,25 @@ module.exports = function (passport) {
     });
   });
   passport.use(new LocalStrategy((username, password, next) => {
-    User.findOne({ username }, (err, foundUser) => {
+    User.findOne({
+      username
+    }, (err, foundUser) => {
       if (err) {
         next(err);
         return;
       }
 
       if (!foundUser) {
-        next(null, false, { message: 'Incorrect username' });
+        next(null, false, {
+          message: 'Incorrect username'
+        });
         return;
       }
 
       if (!bcrypt.compareSync(password, foundUser.password)) {
-        next(null, false, { message: 'Incorrect password' });
+        next(null, false, {
+          message: 'Incorrect password'
+        });
         return;
       }
 

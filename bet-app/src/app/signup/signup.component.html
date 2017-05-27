@@ -1,20 +1,17 @@
-
-<form *ngIf="!user">
-  <h2> Signup </h2>
-  <label> Username </label>
-  <input type="text" [(ngModel)]="formInfo.username" name="username"/>
-  <br>
-  <label> Password </label>
-  <input type="password" [(ngModel)]="formInfo.password" name="password"/>
-
-  <button (click)="signup()"> signup </button>
-</form>
-
-<div *ngIf="user">
-  <h2> You are now logged in as {{ user.username }}!! </h2>
-
-  <button (click)="logout()"> logout </button>
-  <button (click)="getPrivateData()"> Get private data </button>
+<div class="main-form">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6 col-md-4 col-md-offset-4 login-form">
+        <div class="account-wall">
+          <img class="profile-img" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120" alt="">
+          <form class="form-signin">
+            <input type="text" class="form-control" placeholder="Username" required autofocus [(ngModel)]="formInfo.username" name="username">
+            <input type="password" class="form-control" placeholder="Password" required [(ngModel)]="formInfo.password" name="password">
+            <button class="btn btn-lg btn-success btn-block" (click)="signup()">Register</button>
+            <a routerLink="/login" class="pull-right need-help">Already have an account?</a><span class="clearfix"></span>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-
-<p class="error"> {{ error }} </p>

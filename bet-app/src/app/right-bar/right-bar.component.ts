@@ -14,7 +14,7 @@ import * as $ from 'jquery';
 export class RightBarComponent implements OnInit {
   @Input() betChoosen: any;
   amount: number = 0;
-  calculator=0;
+  calculator = 0;
   prize: any = 1;
 
   constructor(private ticket: TicketService, private router: Router) {
@@ -24,20 +24,20 @@ export class RightBarComponent implements OnInit {
     this.calculator = this.prize;
   }
 
-  ngOnChanges (change) {
+  ngOnChanges(change) {
     this.getTotal();
 
   }
 
-  getTotal(){
-    let total:number = 0;
+  getTotal() {
+    let total: number = 0;
     total = this.betChoosen.reduce((acc, el) => {
       return acc *= parseFloat(el.oddChoose);
     }, 1)
     this.prize = (this.amount * total).toFixed(2);
   }
 
-  makeBet(){
+  makeBet() {
     let betForm = {
       risk: this.amount,
       prize: this.prize,
@@ -52,6 +52,6 @@ export class RightBarComponent implements OnInit {
     $(".choose-boxes").remove();
   }
 
-  successCb(bet) {}
+  successCb(bet) { }
 
 }

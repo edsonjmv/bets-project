@@ -7,8 +7,8 @@ import { SessionService } from '../session.service'
   styleUrls: ['./nav-bar.component.scss']
 })
 export class NavBarComponent implements OnInit {
-  @Input() isAuthenticated:boolean;
-  error:any;
+  @Input() isAuthenticated: boolean;
+  error: any;
   user: any;
 
   constructor(private session: SessionService) { }
@@ -16,19 +16,19 @@ export class NavBarComponent implements OnInit {
   ngOnInit() {
     this.session.isLoggedIn()
       .subscribe(
-        (user) => this.successCb(user)
+      (user) => this.successCb(user)
       );
 
-      this.session.getLoginEmitter().subscribe(
-        user => this.successCb(user)
-      )
+    this.session.getLoginEmitter().subscribe(
+      user => this.successCb(user)
+    )
   }
 
   logout() {
     this.session.logout()
       .subscribe(
-        () => this.successCb(null),
-        (err) => this.errorCb(err)
+      () => this.successCb(null),
+      (err) => this.errorCb(err)
       );
   }
 

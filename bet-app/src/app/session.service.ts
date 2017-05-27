@@ -28,25 +28,25 @@ export class SessionService {
   }
 
   login(user) {
-    return this.http.post(`${this.BASE_URL}/login`, user,{withCredentials:true})
+    return this.http.post(`${this.BASE_URL}/login`, user, { withCredentials: true })
       .map(res => res.json())
       .catch(this.handleError);
   }
 
   logout() {
-    return this.http.post(`${this.BASE_URL}/logout`, {}, {withCredentials:true})
+    return this.http.post(`${this.BASE_URL}/logout`, {}, { withCredentials: true })
       .map(res => res.json())
       .catch(this.handleError);
   }
 
   isLoggedIn() {
-    return this.http.get(`${this.BASE_URL}/loggedin`, {withCredentials:true})
+    return this.http.get(`${this.BASE_URL}/loggedin`, { withCredentials: true })
       .map(res => res.json())
       .catch((err) => this.handleError(err));
   }
 
   getPrivateData() {
-    return this.http.get(`${this.BASE_URL}/private`,{withCredentials:true})
+    return this.http.get(`${this.BASE_URL}/private`, { withCredentials: true })
       .map(res => res.json())
       .catch(this.handleError);
   }

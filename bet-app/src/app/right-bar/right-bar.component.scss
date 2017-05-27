@@ -1,8 +1,8 @@
 $white: #fff;
 $black: #000;
+$red: #f00;
 
 .ticket-container {
-  border: 1px solid $white;
   height: 500px;
   width: 100%;
 }
@@ -16,7 +16,6 @@ button {
 }
 
 .odd-box {
-  border: 1px solid $white;
   height: 80px;
   margin-bottom: 30px;
   padding-top: 10px;
@@ -30,14 +29,13 @@ button {
 }
 
 .ticket-head {
-  height: 80px;
+  height: 150px;
   margin-bottom: 20px;
   width: 100%;
 }
 
 .ticket-input {
-  float: left;
-  height: 100%;
+  height: 50%;
   margin-top: 10px;
   text-align: center;
   width: 50%;
@@ -57,11 +55,34 @@ button {
 }
 
 .bet-button {
-  margin-left: 70px;
-  width: 100px;
+  margin-left: 13px;
+  text-align: center;
+  width: 90%;
 }
 
 .risk-number {
   font-size: 14px;
   text-align: center;
+}
+
+.icon-remove {
+  color: $red;
+  float: right;
+  width: 10%;
+}
+
+.choose-selections {
+  float: left;
+  width: 90%;
+}
+
+.choose-boxes {
+  height: 30px;
+  margin-bottom: 10px;
+  padding-left: 10px;
+}
+
+.risk-input {
+  margin-left: 70px;
+  width: 50%;
 }

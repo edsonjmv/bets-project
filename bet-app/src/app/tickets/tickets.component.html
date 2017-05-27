@@ -1,13 +1,19 @@
-<a routerLink="/board">Make another bet</a>
+<div class="container-fluid go-bets">
+  <h2><a routerLink="/board">Place another bet</a></h2>
 
-<div class="container">
-  <div class='col-md-2 ticket-boxes' *ngFor="let ticket of tickets">
+</div>
+
+<div class="container-fluid">
+  <div class='col-md-3 ticket-boxes' *ngFor="let ticket of tickets">
+    <div class="inside-ticket">
       <p> {{ ticket.created_at | date:'dd/MM/yyyy' }} </p>
       <p>Risk: {{ticket.risk}}</p>
       <p>Prize: {{ticket.prize}}</p>
       <br>
-    <p>Selections: </p>
-        <p *ngFor="let bet of ticket.bets">{{bet.teamChoose}} {{bet.oddChoose}}</p>
+      <p>Selections: </p>
+      <p *ngFor="let bet of ticket.bets">{{bet.teamChoose}} {{bet.oddChoose}}</p>
+    </div>
+
 
   </div>
 </div>

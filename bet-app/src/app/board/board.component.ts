@@ -27,7 +27,7 @@ export class BoardComponent implements OnInit {
   }
 
   addOdd(choose) {
-    let values = this.betChoosen.map(function(o) { return (o.teamChoose === choose.teamChoose) ? true : false ; });
+    let values = this.betChoosen.map(function(o) { return (o.teamChoose === choose.teamChoose) ? true : false; });
     if (values[0]) {
       this.betChoosen.splice(this.betChoosen.indexOf(choose.teamChoose, 1));
     } else {
@@ -38,8 +38,8 @@ export class BoardComponent implements OnInit {
 
   getSportsOdd(elem) {
     this.odd.getOdds(elem)
-    .subscribe((odds) => {
-      this.odds = odds;
-    });
+      .subscribe((odds) => {
+        this.odds = odds;
+      });
   }
 }

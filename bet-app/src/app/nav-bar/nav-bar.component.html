@@ -19,10 +19,10 @@
         <li><a routerLink='tickets'>Tickets</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li *ngIf="!user"><a routerLink="login">Login</a></li>
-        <li *ngIf="!user"><a routerLink="signup">Signup</a></li>
-        <li *ngIf="user"><a>{{user.username}} <img width="20" src="https://www.courageworks.com/assets/placeholders/user/profiles/avatar_missing-5b2c566650cc0378d62358cbe6c4ede4016e4308fd71237cb6f541520f7e31ae.jpg" alt=""> 1.000$</a></li>
-        <li *ngIf="user"><a routerLink="/" (click)='logout()'>Logout</a></li>
+        <li *ngIf="!loggedUser"><a routerLink="login">Login</a></li>
+        <li *ngIf="!loggedUser"><a routerLink="signup">Signup</a></li>
+        <li *ngIf="loggedUser"><a>{{loggedUser.username}} <img width="20" src="https://www.courageworks.com/assets/placeholders/user/profiles/avatar_missing-5b2c566650cc0378d62358cbe6c4ede4016e4308fd71237cb6f541520f7e31ae.jpg" alt=""> 1.000$</a></li>
+        <li *ngIf="loggedUser"><a routerLink="/" (click)='logout()'>Logout</a></li>
       </ul>
     </div>
     <!-- /.navbar-collapse -->

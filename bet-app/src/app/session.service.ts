@@ -7,9 +7,9 @@ import { Observable } from 'rxjs/Rx';
 @Injectable()
 export class SessionService {
   BASE_URL: string = 'http://localhost:3000/auth';
-  users: any;
+  loggedUser: any;
 
-  loginEvent: EventEmitter<any> = new EventEmitter();
+  loginEvent = new EventEmitter<any>();
 
   constructor(private http: Http) { }
 
@@ -29,7 +29,12 @@ export class SessionService {
 
   login(user) {
     return this.http.post(`${this.BASE_URL}/login`, user, { withCredentials: true })
-      .map(res => res.json())
+      .map(res => {
+        this.loggedUser = res.json();
+        this.loginEvent.emit(this.loggedUser);
+        console.log(this.loggedUser);
+        return res => res.json();
+      })
       .catch(this.handleError);
   }
 

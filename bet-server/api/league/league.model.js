@@ -11,6 +11,9 @@ const leagueSchema = new mongoose.Schema({
   },
   sport_group: {
     type: String
+  },
+  image: {
+    type: String
   }
 }, {
   timestamps: {

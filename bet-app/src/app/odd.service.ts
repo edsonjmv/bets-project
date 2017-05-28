@@ -23,6 +23,13 @@ export class OddService {
       });
   }
 
+  getAllOdds() {
+    return this.http.get(`${this.BASE_URL}/odds/all`)
+      .map((res) => {
+        return res.json()
+      });
+  }
+
   oddClick() {
     console.log('click');
   }

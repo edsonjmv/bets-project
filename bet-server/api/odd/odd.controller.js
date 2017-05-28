@@ -2,6 +2,15 @@
 const _ = require('lodash');
 const oddModel = require('./odd.model');
 
+exports.getAllOdds = function(req, res, next) {
+  oddModel.find({}, function(err, odds) {
+    if (err) {
+      return res.json(err);
+    }
+    return res.json(odds);
+  });
+};
+
 exports.getOdds = function(req, res, next) {
   leagueId = req.query.leagueId;
   oddModel.find({league_id: leagueId}, function(err, odds) {

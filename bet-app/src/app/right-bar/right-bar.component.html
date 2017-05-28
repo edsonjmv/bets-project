@@ -9,12 +9,30 @@
     </div>
     <span class='ticket-input'><p>Prize:</p><p class="prize-p">${{prize}}</p></span>
   </div>
-
-  <div class="choose-boxes" *ngFor="let choose of betChoosen">
-    <section class="choose-selections">{{choose.teamChoose}} {{choose.oddChoose}}</section>
-    <span class="glyphicon glyphicon-remove icon-remove"></span>
-  </div>
   <div class="button-box">
-    <button type="button" class="btn btn-success bet-button" (click)="makeBet()">Bet</button>
+    <button type="button" class="btn btn-success bet-button" (click)="makeBet()">Place Bet</button>
   </div>
+
+  <div class="choose-boxes">
+
+    <table class="table">
+    <thead>
+    <tr>
+    <th width="80%">Selection</th>
+    <th width="10%">Odd</th>
+    <th width="10%"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let choose of betChoosen">
+    <td>{{choose.teamChoose}}</td>
+    <td>{{choose.oddChoose}}</td>
+    <td><span class="glyphicon glyphicon-remove icon-remove"></span></td>
+    </tr>
+    </tbody>
+    </table>
+    <!-- <section class="choose-selections">{{choose.teamChoose}} {{choose.oddChoose}}</section>
+    <span class="glyphicon glyphicon-remove icon-remove"></span> -->
+  </div>
+
 </div>

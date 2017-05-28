@@ -32,7 +32,6 @@ export class SessionService {
       .map(res => {
         this.loggedUser = res.json();
         this.loginEvent.emit(this.loggedUser);
-        console.log(this.loggedUser);
         return res => res.json();
       })
       .catch(this.handleError);

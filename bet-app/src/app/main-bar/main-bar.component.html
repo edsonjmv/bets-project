@@ -1,6 +1,6 @@
 <div class="odd-box">
-  <img height="70" width="80" style="float: left" src="{{odd.image1}}">
-  <img height="70" width="80" style="float: right" src="{{odd.image2}}">
+  <img height="60" width="60" style="float: left" src="{{odd.image1}}">
+  <img height="60" width="60" style="float: right" src="{{odd.image2}}">
   <p>{{odd.participants[0]}} vs {{odd.participants[1]}}</p>
   <button class="btn btn-default" (click)="onOddAdd(odd.participants[0], odd.odds[0])" (click)="toggleHighlight(1);" [ngClass]="{'btn-success': highlightedDiv === 1}">{{odd.odds[0]}}</button>
   <button class="btn btn-default" (click)="onOddAdd(odd.participants[1], odd.odds[1])" (click)="toggleHighlight2(1);" [ngClass]="{'btn-success': highlighted2Div === 1}">{{odd.odds[1]}}</button>

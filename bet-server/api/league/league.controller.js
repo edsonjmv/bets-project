@@ -15,12 +15,14 @@ exports.createLeague = function(req, res, next) {
   const {
     name,
     display_name,
-    sport_group
+    sport_group,
+    image
   } = req.body;
   const newLeague = new leagueModel({
     name: name,
     display_name: display_name,
-    sport_group: sport_group
+    sport_group: sport_group,
+    image: image
   });
 
   newLeague.save().then(league => {

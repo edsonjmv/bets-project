@@ -16,6 +16,7 @@ export class BoardComponent implements OnInit {
     id: 0
   }
   leagues;
+  allOdd;
 
   constructor(private odd: OddService, private tick: TicketService) { }
 
@@ -24,17 +25,22 @@ export class BoardComponent implements OnInit {
       .subscribe((leagues) => {
         this.leagues = leagues;
       });
+
+    this.odd.getAllOdds()
+      .subscribe((allOdd) => {
+        this.allOdd = allOdd;
+      });
   }
 
-  addOdd(choose) {
-    let values = this.betChoosen.map(function(o) { return (o.teamChoose === choose.teamChoose) ? true : false; });
-    if (values[0]) {
-      this.betChoosen.splice(this.betChoosen.indexOf(choose.teamChoose, 1));
-    } else {
-      this.betChoosen.push(choose);
-    }
-    this.betChoosen = _.clone(this.betChoosen);
+addOdd(choose) {
+  let index = this.betChoosen.findIndex(x => x.teamChoose == choose.teamChoose);
+  if (index === -1) {
+    this.betChoosen.push(choose)
+  } else {
+    this.betChoosen.splice(index, 1);
   }
+  this.betChoosen = _.clone(this.betChoosen);
+}
 
   getSportsOdd(elem) {
     this.odd.getOdds(elem)

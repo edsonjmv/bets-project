@@ -8,7 +8,8 @@ const bodyParser = require('body-parser');
 const authRoutes = require('./routes/auth-routes');
 const session = require('express-session');
 const passport = require('passport');
-var MongoStore = require('connect-mongo')(session);
+const mongoose = require('mongoose');
+const MongoStore = require('connect-mongo')(session);
 
 require('./configs/database');
 require('./config/passport')(passport);
@@ -57,7 +58,8 @@ app.use(session({
   cookie: {
     httpOnly: true,
     maxAge: 2419200000
-  }
+  },
+  store: new MongoStore({mongooseConnection: mongoose.connection, ttl: 24 * 60 * 60})
 }));
 passportSetup(passport);
 

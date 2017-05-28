@@ -1,17 +1,32 @@
 <div class="container-fluid go-bets">
-  <h2><a routerLink="/board">Place another bet</a></h2>
+  <h4><a routerLink="/board">Go back to bets</a></h4>
 
 </div>
 
 <div class="container-fluid">
-  <div class='col-md-3 ticket-boxes' *ngFor="let ticket of tickets">
+  <div class='container-fluid col-md-3 col-sm-4 ticket-boxes' *ngFor="let ticket of tickets">
     <div class="inside-ticket">
-      <p> {{ ticket.created_at | date:'dd/MM/yyyy' }} </p>
-      <p>Risk: {{ticket.risk}}</p>
-      <p>Prize: {{ticket.prize}}</p>
-      <br>
-      <p>Selections: </p>
-      <p *ngFor="let bet of ticket.bets">{{bet.teamChoose}} {{bet.oddChoose}}</p>
+      <div class="ticket-header">
+        <p> {{ ticket.created_at | date:'dd/MM/yyyy' }} </p>
+        <p>Bet: {{ticket.risk}}$</p>
+        <p>To win: <span class='prize-numb'>{{ticket.prize}}$</span></p>
+      </div>
+
+
+      <table class="table">
+  <thead>
+    <tr>
+      <th>Selection</th>
+      <th>Odd</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let bet of ticket.bets">
+      <td>{{bet.teamChoose}}</td>
+      <td>{{bet.oddChoose}}</td>
+    </tr>
+  </tbody>
+</table>
     </div>
 
 

@@ -1,8 +1,9 @@
 $white: #fff;
+$link-color: #59a27a;
 
 .ticket-boxes {
   box-sizing: border-box;
-  height: 500px;
+  height: 600px;
   padding: 20px;
   text-align: center;
 
@@ -13,7 +14,11 @@ $white: #fff;
 
 .inside-ticket {
   border: 1px solid $white;
+  border-radius: 20px;
   height: 95%;
+  margin: 0 auto;
+  padding-top: 15px;
+  text-align: left;
   width: 80%;
 }
 
@@ -21,4 +26,13 @@ $white: #fff;
   margin-bottom: 20px;
   margin-top: 20px;
   text-align: center;
+}
+
+.ticket-header {
+  text-align: center;
+}
+
+.prize-numb {
+  color: $link-color;
+  font-size: 30px;
 }

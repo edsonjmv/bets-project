@@ -10,8 +10,12 @@ const User = require('../api/user/user.model');
 const authRoutes = express.Router();
 
 authRoutes.post("/signup", (req, res, next) => {
-  var username = req.body.username;
-  var password = req.body.password;
+  let username = req.body.username;
+  let password = req.body.password;
+  let name = req.body.name;
+  let last_name = req.body.last_name;
+  let image = req.body.image;
+  let cashier = req.body.cashier;
 
   if (!username || !password) {
     res.status(400).json({
@@ -35,7 +39,11 @@ authRoutes.post("/signup", (req, res, next) => {
 
     var newUser = User({
       username,
-      password: hashPass
+      password: hashPass,
+      name,
+      last_name,
+      image,
+      cashier
     });
 
     newUser.save((err) => {

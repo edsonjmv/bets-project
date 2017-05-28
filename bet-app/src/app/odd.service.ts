@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import * as _ from "lodash";
+import { Observable } from 'rxjs/Rx';
 
 @Injectable()
 export class OddService {
@@ -28,6 +29,16 @@ export class OddService {
       .map((res) => {
         return res.json()
       });
+  }
+
+  createOdd(data){
+    return this.http.post(`${this.BASE_URL}/odds`, data)
+      .map(res => res.json())
+      .catch(this.handleError);
+  }
+
+  handleError(e) {
+    return Observable.throw(e.json().message);
   }
 
   oddClick() {

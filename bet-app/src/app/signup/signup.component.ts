@@ -11,7 +11,11 @@ export class SignupComponent implements OnInit {
   user: any;
   formInfo = {
     username: '',
-    password: ''
+    password: '',
+    name: '',
+    last_name: '',
+    image: '',
+    cashier: 1000
   };
   error: string;
   privateData: any = 'Privado';
@@ -53,7 +57,7 @@ export class SignupComponent implements OnInit {
   successCb(user) {
     this.user = user;
     this.error = null;
-    this.router.navigate(['/board'])
+    this.router.navigate(['/login'])
   }
 
 }

@@ -14,7 +14,7 @@ $black: #000;
   color: $white;
   font-family: 'Barrio', cursive;
   font-size: 120px;
-  margin-top: 200px;
+  margin-top: 150px;
   text-align: center;
 }
 
@@ -44,5 +44,9 @@ $black: #000;
 }
 
 .buttons-box {
-  margin-left: 380px;
+  text-align: center;
+
+  button {
+    margin: 0 20px 20px;
+  }
 }

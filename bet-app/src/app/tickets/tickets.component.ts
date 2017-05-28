@@ -14,7 +14,6 @@ export class TicketsComponent implements OnInit {
   ngOnInit() {
     this.ticket.getTickets()
       .subscribe((tickets) => {
-        console.log(tickets)
         this.tickets = tickets;
       });
   }

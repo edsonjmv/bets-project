@@ -22,6 +22,7 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { HomeComponent } from './home/home.component';
 import { AdminComponent } from './admin/admin.component';
+import { OddCreatorComponent } from './odd-creator/odd-creator.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { AdminComponent } from './admin/admin.component';
     LoginComponent,
     SignupComponent,
     HomeComponent,
-    AdminComponent
+    AdminComponent,
+    OddCreatorComponent
   ],
   imports: [
     BrowserModule,

@@ -10,6 +10,7 @@ $black: #000;
 $wall-back: #f7f7f7;
 $login-title: #555;
 $wall-shadow: rgba(0, 0, 0, .3);
+$red: #f00;
 
 // .main-form {
 //   background: linear-gradient(0deg, $transp-back, $transp-back), url($link-back);
@@ -92,4 +93,10 @@ $wall-shadow: rgba(0, 0, 0, .3);
 .new-account {
   display: block;
   margin-top: 10px;
+}
+
+.error-text {
+  color: $red;
+  font-size: 20px;
+  text-align: center;
 }

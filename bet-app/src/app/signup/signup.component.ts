@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SessionService } from '../session.service';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -16,7 +16,7 @@ export class SignupComponent implements OnInit {
   error: string;
   privateData: any = 'Privado';
 
-  constructor(private session: SessionService) { }
+  constructor(private session: SessionService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -53,6 +53,7 @@ export class SignupComponent implements OnInit {
   successCb(user) {
     this.user = user;
     this.error = null;
+    this.router.navigate(['/board'])
   }
 
 }

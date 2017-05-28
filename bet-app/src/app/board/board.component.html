@@ -2,15 +2,15 @@
 <div class='container-fluid board-box'>
 
   <!-- Left bar -->
-  <div class='col-xs-12 col-sm-5 col-md-3'>
+  <div style="margin-bottom: 50px;" class='col-xs-12 col-sm-5 col-md-3'>
     <div *ngFor="let league of leagues">
       <app-left-bar [league]="league" (selectSport)='getSportsOdd($event)'></app-left-bar>
     </div>
   </div>
 
   <!-- Main bar -->
-  <div class='col-xs-12 col-sm-7 col-md-6'>
-    <div *ngIf="odds === undefined">
+  <div style="margin-bottom: 50px;" class='col-xs-12 col-sm-7 col-md-6'>
+    <div class="container-fluid" *ngIf="odds === undefined">
       <div *ngFor="let odd of allOdd">
         <app-main-bar [odd]="odd" (onAdd)='addOdd($event)'></app-main-bar>
       </div>
@@ -22,7 +22,10 @@
 
   <!-- Right bar -->
   <div class='col-xs-12 col-sm-4 col-md-3'>
-    <app-right-bar [betChoosen]="betChoosen"></app-right-bar>
+    <!-- <div class="container-fluid"> -->
+      <app-right-bar [betChoosen]="betChoosen"></app-right-bar>
+
+    <!-- </div> -->
   </div>
 
 </div>

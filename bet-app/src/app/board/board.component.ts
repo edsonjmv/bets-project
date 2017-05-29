@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { OddService } from '../odd.service';
 import { TicketService } from '../ticket.service';
 import * as _ from "lodash";
+import { SessionService } from '../session.service'
+import { RouterModule, Router } from '@angular/router';
 
 @Component({
   selector: 'app-board',
@@ -17,10 +19,16 @@ export class BoardComponent implements OnInit {
   }
   leagues;
   allOdd;
+  user;
 
-  constructor(private odd: OddService, private tick: TicketService) { }
+  constructor(private odd: OddService, private tick: TicketService, private session: SessionService, private router: Router) { }
 
   ngOnInit() {
+    this.user=this.session.loggedUser;
+    if (this.user === undefined) {
+      this.router.navigate(['/login']);
+    }
+
     this.odd.getLeagues()
       .subscribe((leagues) => {
         this.leagues = leagues;

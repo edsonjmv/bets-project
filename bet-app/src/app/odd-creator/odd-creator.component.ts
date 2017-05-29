@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { OddService } from '../odd.service';
-import { Router } from '@angular/router';
+import { SessionService } from '../session.service'
+import { RouterModule, Router } from '@angular/router';
 
 
 @Component({
@@ -20,10 +21,16 @@ export class OddCreatorComponent implements OnInit {
   };
   error: string;
   data: any;
+  user;
 
-  constructor(private odd: OddService, private router: Router) { }
+  constructor(private odd: OddService, private router: Router, private session: SessionService) { }
 
   ngOnInit() {
+    this.user=this.session.loggedUser;
+
+    if (this.user === undefined) {
+      this.router.navigate(['/login']);
+    }
   }
 
   createNewOdd() {

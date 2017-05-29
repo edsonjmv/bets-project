@@ -83,3 +83,19 @@ button {
   margin-left: 80px;
   width: 50%;
 }
+
+.my-footer {
+  background-color: $white;
+  display: none;
+  height: 50px;
+}
+
+@media (max-width: 400px) {
+  .ticket-container {
+    display: none;
+  }
+
+  .my-footer {
+    display: block;
+  }
+}

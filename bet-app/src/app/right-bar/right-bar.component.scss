@@ -15,6 +15,11 @@ button {
   color: $black;
 }
 
+.input-amount {
+  text-align: center;
+  width: 80%;
+}
+
 .odd-box {
   height: 80px;
   margin-bottom: 30px;
@@ -29,7 +34,7 @@ button {
 }
 
 .ticket-head {
-  height: 150px;
+  height: 120px;
   width: 100%;
 }
 
@@ -38,10 +43,6 @@ button {
   margin-top: 10px;
   text-align: center;
   width: 50%;
-
-  input {
-    width: 80%;
-  }
 }
 
 .prize-p {

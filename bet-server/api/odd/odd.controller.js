@@ -1,6 +1,7 @@
 /*jshint esversion: 6*/
 const _ = require('lodash');
 const oddModel = require('./odd.model');
+const upload = require('../../configs/multer');
 
 exports.getAllOdds = function(req, res, next) {
   oddModel.find({}, function(err, odds) {

@@ -1,12 +1,12 @@
-$link-back: ('http://visit.rio/wp-content/uploads/2015/09/9185352778_aa7bd28d1a_k1.jpg');
-$transp-back: rgba(26, 26, 26, .8);
+$link-back: ('http://redboxpictures.com/commercial/wp-content/uploads/2011/01/spring-sports-prep-seattle-composite-web-1763x800.jpg');
+$transp-back: rgba(26, 26, 26, .7);
 $white: #fff;
 $black: #000;
 
 .main-index {
-  // background: linear-gradient(0deg, $transp-back, $transp-back), url($link-back);
-  // background-repeat: no-repeat;
-  // background-size: cover;
+  background: linear-gradient(0deg, $transp-back, $transp-back), url($link-back);
+  background-repeat: no-repeat;
+  background-size: cover;
   height: 600px;
 }
 
@@ -48,5 +48,11 @@ $black: #000;
 
   button {
     margin: 0 20px 20px;
+  }
+}
+
+@media (max-width: 500px) {
+  .main-title {
+    font-size: 80px;
   }
 }

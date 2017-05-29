@@ -14,7 +14,7 @@ import * as $ from 'jquery';
 })
 export class RightBarComponent implements OnInit {
   @Input() betChoosen: any;
-  amount: number = 0;
+  amount: number;
   calculator = 0;
   prize: any = 1;
   multip: any;

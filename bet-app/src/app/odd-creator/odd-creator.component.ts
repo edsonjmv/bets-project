@@ -13,7 +13,7 @@ export class OddCreatorComponent implements OnInit {
   formInfo = {
     league_id: '',
     participants: ['', ''],
-    status: '',
+    status: 'Pending',
     odds: ['', ''],
     image1: '',
     image2: ''
@@ -46,10 +46,3 @@ export class OddCreatorComponent implements OnInit {
   }
 
 }
-
-// league_id,
-// participants,
-// status,
-// odds,
-// image1,
-// image2

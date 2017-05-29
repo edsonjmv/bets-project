@@ -28,8 +28,7 @@ export class MainBarComponent implements OnInit {
   toggleHighlight(newValue: number) {
     if (this.highlightedDiv === newValue) {
       this.highlightedDiv = 0;
-    }
-    else {
+    } else {
       this.highlightedDiv = newValue;
     }
   }
@@ -37,8 +36,7 @@ export class MainBarComponent implements OnInit {
   toggleHighlight2(newValue: number) {
     if (this.highlighted2Div === newValue) {
       this.highlighted2Div = 0;
-    }
-    else {
+    } else {
       this.highlighted2Div = newValue;
     }
   }

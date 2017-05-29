@@ -3,11 +3,11 @@
     <div class="form-group">
       <label class="sr-only" for="exampleInputAmount">Risk Amount</label>
       <div class="input-group risk-input">
-        <div class="input-group-addon">$</div>
-        <input type="text" class="form-control" id="exampleInputAmount" placeholder="Amount" [(ngModel)]="amount" (keyup)="getTotal($event)">
+        <div class="input-group-addon">€</div>
+        <input type="text" class="form-control" id="exampleInputAmount" placeholder="0" [(ngModel)]="amount" (keyup)="getTotal($event)">
       </div>
     </div>
-    <span class='ticket-input'><p>Prize:</p><p class="prize-p">${{prize}}</p></span>
+    <span class='ticket-input'><p>Prize:</p><p class="prize-p">{{prize | currency:'EUR':true}}</p></span>
   </div>
   <div class="button-box">
     <button type="button" class="btn btn-success bet-button" (click)="makeBet()">Place Bet</button>
@@ -18,8 +18,8 @@
     <table class="table">
       <thead>
         <tr>
-          <th width="80%">Selection</th>
-          <th width="10%">Odd</th>
+          <th width="70%">Selection</th>
+          <th width="20%">Odd</th>
           <th width="10%"></th>
         </tr>
       </thead>
@@ -30,7 +30,15 @@
           <td><span class="glyphicon glyphicon-remove icon-remove"></span></td>
         </tr>
       </tbody>
+      <tfoot>
+        <tr *ngIf="betChoosen.length > 0">
+          <td style="text-align: right;">Total</td>
+          <td><p>{{multip}}</p></td>
+          <td></td>
+        </tr>
+      </tfoot>
     </table>
+    <!-- <p *ngIf="betChoosen.length > 0" style="text-align: right">{{multip}}</p> -->
   </div>
 
 </div>

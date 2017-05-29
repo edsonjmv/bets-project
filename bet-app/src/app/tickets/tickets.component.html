@@ -2,33 +2,34 @@
   <h4><a routerLink="/board">Go back to bets</a></h4>
 
 </div>
+<div *ngIf="user != undefined" class="container-fluid">
+  <span *ngFor="let ticket of tickets">
+    <div class='container-fluid col-md-3 col-sm-4 ticket-boxes' *ngIf="user._id === ticket.user_id">
+      <div class="inside-ticket">
+        <div class="ticket-header">
+          <p> {{ ticket.created_at | date:'dd/MM/yyyy' }} </p>
+          <p>Bet: {{ticket.risk | currency:'EUR':true}}</p>
+          <p>To win: <span class='prize-numb'>{{ticket.prize | currency:'EUR':true}}</span></p>
+        </div>
 
-<div class="container-fluid">
-  <div class='container-fluid col-md-3 col-sm-4 ticket-boxes' *ngFor="let ticket of tickets">
-    <div class="inside-ticket">
-      <div class="ticket-header">
-        <p> {{ ticket.created_at | date:'dd/MM/yyyy' }} </p>
-        <p>Bet: {{ticket.risk}}$</p>
-        <p>To win: <span class='prize-numb'>{{ticket.prize}}$</span></p>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Selection</th>
+              <th>Odd</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let bet of ticket.bets">
+              <td>{{bet.teamChoose}}</td>
+              <td>{{bet.oddChoose}}</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
 
 
-      <table class="table">
-  <thead>
-    <tr>
-      <th>Selection</th>
-      <th>Odd</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let bet of ticket.bets">
-      <td>{{bet.teamChoose}}</td>
-      <td>{{bet.oddChoose}}</td>
-    </tr>
-  </tbody>
-</table>
     </div>
+  </span>
 
-
-  </div>
 </div>

@@ -14,7 +14,7 @@ export class SignupComponent implements OnInit {
     password: '',
     name: '',
     last_name: '',
-    image: '',
+    image: 'https://intigriti.be/public/img/avatar.png',
     cashier: 1000
   };
   error: string;

@@ -54,7 +54,8 @@ $red: #f00;
   .form-control {
     box-sizing: border-box;
     font-size: 16px;
-    height: auto;
+    height: 40px;
+    margin-bottom: 10px;
     padding: 10px;
     position: relative;
 
@@ -67,8 +68,8 @@ $red: #f00;
 .account-wall {
   background-color: $wall-back;
   box-shadow: 0 2px 2px $wall-shadow;
-  margin-top: 20px;
-  padding: 40px 0 20px;
+  margin-top: 10px;
+  padding: 10px 0 20px;
 }
 
 .login-title {

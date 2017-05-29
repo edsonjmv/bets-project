@@ -4,10 +4,12 @@ const ticketModel = require('./ticket.model');
 const Ticket       = require('./ticket.model');
 
 exports.createTicket = function(req, res, next) {
+  console.log(req.body);
   const ticket = new Ticket({
     bets: req.body.bets,
     risk: req.body.risk,
-    prize: req.body.prize
+    prize: req.body.prize,
+    user_id: req.body.user_id
   });
 
   ticket.save((err) => {

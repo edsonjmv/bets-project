@@ -5,7 +5,8 @@ const Schema = mongoose.Schema;
 const ticketSchema = new mongoose.Schema({
   bets: Array,
   risk: Number,
-  prize: Number
+  prize: Number,
+  user_id: String
 }, {
   timestamps: {
     createdAt: "created_at",

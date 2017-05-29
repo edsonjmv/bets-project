@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output } from '@angular/core';
 import { RouterModule, Router } from '@angular/router';
 
 import { TicketService } from '../ticket.service';
+import { SessionService } from '../session.service';
 import { Subscription }   from 'rxjs/Subscription';
 import * as $ from 'jquery';
 
@@ -16,8 +17,9 @@ export class RightBarComponent implements OnInit {
   amount: number = 0;
   calculator = 0;
   prize: any = 1;
+  multip: any;
 
-  constructor(private ticket: TicketService, private router: Router) {
+  constructor(private ticket: TicketService, private router: Router, private session: SessionService) {
   }
 
   ngOnInit() {
@@ -26,7 +28,7 @@ export class RightBarComponent implements OnInit {
 
   ngOnChanges(change) {
     this.getTotal();
-
+    this.getMultip();
   }
 
   getTotal() {
@@ -37,11 +39,18 @@ export class RightBarComponent implements OnInit {
     this.prize = (this.amount * total).toFixed(2);
   }
 
+  getMultip() {
+    this.multip = this.betChoosen.reduce((acc, el) => {
+      return (acc *= el.oddChoose).toFixed(2);
+    }, 1)
+  }
+
   makeBet() {
     let betForm = {
       risk: this.amount,
       prize: this.prize,
-      bets: this.betChoosen
+      bets: this.betChoosen,
+      user_id: this.session.loggedUser._id
     }
     this.ticket.makeBet(betForm).subscribe(
       (bet) => {

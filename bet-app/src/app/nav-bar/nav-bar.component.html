@@ -15,14 +15,14 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li><a routerLink="/">Home</a></li>
-        <li><a routerLink="board">Board</a></li>
-        <li><a routerLink='tickets'>Tickets</a></li>
+        <li *ngIf="loggedUser"><a routerLink="board">Board</a></li>
+        <li *ngIf="loggedUser"><a routerLink='tickets'>Tickets</a></li>
         <li *ngIf="loggedUser"><a routerLink='create-odds'>Create new event</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li *ngIf="!loggedUser"><a routerLink="login">Login</a></li>
         <li *ngIf="!loggedUser"><a routerLink="signup">Signup</a></li>
-        <li *ngIf="loggedUser"><a>{{loggedUser.name}} <img width="20" src="{{loggedUser.image}}" alt="">{{loggedUser.cashier}} $</a></li>
+        <li *ngIf="loggedUser"><a>{{loggedUser.name}} <img style="margin: 0 10px 0" width="20" height="20" src="{{loggedUser.image}}" alt=""></a></li>
         <li *ngIf="loggedUser"><a routerLink="/" (click)='logout()'>Logout</a></li>
       </ul>
     </div>

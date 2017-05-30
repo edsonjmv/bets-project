@@ -27,7 +27,6 @@ export class MainBarComponent implements OnInit {
   }
 
   toggleHighlight() {
-    console.log(this.highlightedDiv)
     this.highlighted2Div = false;
     this.highlightedDiv = !this.highlightedDiv;
   }

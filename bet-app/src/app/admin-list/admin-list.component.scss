@@ -1,0 +1,19 @@
+$white: #fff;
+
+.listing {
+  border-radius: 10px;
+  height: 80px;
+  margin: 30px 0;
+  padding-left: 10px;
+  text-align: center;
+}
+
+.inside-list {
+  border: 1px solid $white;
+  border-radius: 10px;
+  margin: 0 auto;
+}
+
+.listing-btn {
+  width: 80px;
+}

@@ -7,6 +7,9 @@ import {HomeComponent} from './home/home.component';
 import {OddCreatorComponent} from './odd-creator/odd-creator.component';
 import {ProfileComponent} from './profile/profile.component';
 import {EditProfileComponent} from './edit-profile/edit-profile.component';
+import {AdminListComponent} from './admin-list/admin-list.component';
+import {EditOddComponent} from './edit-odd/edit-odd.component';
+
 
 export const routes: Routes = [
     {path: '', component: HomeComponent},
@@ -17,5 +20,7 @@ export const routes: Routes = [
     {path: 'create-odds', component: OddCreatorComponent},
     {path: 'profile', component: ProfileComponent},
     {path: 'edit-profile', component: EditProfileComponent},
+    {path: 'admin-list', component: AdminListComponent},
+    {path: 'odd/:id', component: EditOddComponent},
     {path: '**', redirectTo: ''}
 ];

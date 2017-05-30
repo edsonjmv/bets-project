@@ -44,3 +44,47 @@ exports.createOdd = function(req, res, next) {
     return res.status(201).json(odd);
   });
 };
+
+exports.getSingle = function(req, res, next) {
+  oddModel.findById(req.params.id, (err, theOdd) => {
+      if (err) {
+        res.json(err);
+        return;
+      }
+
+      res.json(theOdd);
+    });
+};
+
+exports.editOdd = function(req, res, next) {
+  const updates = {
+    participants: req.body.participants,
+    odds: req.body.odds,
+    image1: req.body.image1,
+    image2: req.body.image2
+  };
+
+  oddModel.findByIdAndUpdate(req.params.id, updates, (err) => {
+    if (err) {
+      res.json(err);
+      return;
+    }
+
+    res.json({
+      message: 'Odd updated successfully'
+    });
+  });
+};
+
+exports.deleteOdd = function(req, res, next) {
+  oddModel.remove({ _id: req.params.id }, (err) => {
+    if (err) {
+      res.json(err);
+      return;
+    }
+
+    return res.json({
+      message: 'Odd has been removed!'
+    });
+  });
+};

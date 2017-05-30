@@ -25,6 +25,8 @@ import { AdminComponent } from './admin/admin.component';
 import { OddCreatorComponent } from './odd-creator/odd-creator.component';
 import { ProfileComponent } from './profile/profile.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { AdminListComponent } from './admin-list/admin-list.component';
+import { EditOddComponent } from './edit-odd/edit-odd.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,9 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
     AdminComponent,
     OddCreatorComponent,
     ProfileComponent,
-    EditProfileComponent
+    EditProfileComponent,
+    AdminListComponent,
+    EditOddComponent
   ],
   imports: [
     BrowserModule,

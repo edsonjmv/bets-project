@@ -1,21 +1,12 @@
+<pre>{{odd|json}}</pre>
+
 <div class="main-form">
   <div class="container">
     <div class="row">
       <div class="col-sm-6 col-md-4 col-md-offset-4 login-form">
         <div class="account-wall">
           <form class="form-signin">
-            <h3 style="text-align: center;">Create new event</h3>
-            <!-- <input type="text" class="form-control" placeholder="League ID" required autofocus [(ngModel)]="formInfo.league_id" name="league_id"> -->
-            <select class="form-control" placeholder="League ID" [(ngModel)]="formInfo.league_id" name="league_id">
-              <option value="" disabled selected hidden>Please choose league</option>
-              <option value="592aca65585fc01473240e9a">Champions League</option>
-              <option value="592acb0d585fc01473240e9b">MLB</option>
-              <option value="592acb4d585fc01473240e9c">NBA</option>
-              <option value="592acb85585fc01473240e9d">NFL</option>
-              <option value="592acc42585fc01473240e9f">NHL</option>
-              <option value="592acd7b585fc01473240ea2">Tennis</option>
-              <option value="592ace67585fc01473240ea5">Mixed Martial Arts</option>
-            </select>
+            <h3 style="text-align: center;">Edit event</h3>
             <h5 style="text-align: center;">Participant 1</h5>
             <input type="text" class="form-control" placeholder="Name" required [(ngModel)]="formInfo.participants[0]" name="participants[0]">
             <input type="text" class="form-control" placeholder="Odd" required [(ngModel)]="formInfo.odds[0]" name="odds[0]">
@@ -24,8 +15,7 @@
             <input type="text" class="form-control" placeholder="Name" required [(ngModel)]="formInfo.participants[1]" name="participants[1]">
             <input type="text" class="form-control" placeholder="Odd" required [(ngModel)]="formInfo.odds[1]" name="odds[1]">
             <input type="text" class="form-control" placeholder="Image URL" required [(ngModel)]="formInfo.image2" name="image2">
-            <button class="btn btn-lg btn-success btn-block" (click)="createNewOdd()">Create</button>
-            <p class="error-text" *ngIf="error">{{error}}</p>
+            <button class="btn btn-lg btn-success btn-block" (click)="edit()">Edit</button>
             <a routerLink="/admin-list">Admin List</a>
           </form>
         </div>

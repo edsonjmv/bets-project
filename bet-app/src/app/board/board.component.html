@@ -2,7 +2,7 @@
 
   <!-- Left bar -->
   <div style="margin-bottom: 50px;" class='col-xs-12 col-sm-5 col-md-3'>
-    <div *ngFor="let league of leagues">
+    <div class="leagues-listing" *ngFor="let league of leagues">
       <app-left-bar [league]="league" (selectSport)='getSportsOdd($event)'></app-left-bar>
     </div>
   </div>

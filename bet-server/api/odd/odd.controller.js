@@ -14,7 +14,9 @@ exports.getAllOdds = function(req, res, next) {
 
 exports.getOdds = function(req, res, next) {
   leagueId = req.query.leagueId;
-  oddModel.find({league_id: leagueId}, function(err, odds) {
+  oddModel.find({
+    league_id: leagueId
+  }, function(err, odds) {
     if (err) {
       return res.json(err);
     }
@@ -32,12 +34,12 @@ exports.createOdd = function(req, res, next) {
     image2
   } = req.body;
   const newOdd = new oddModel({
-    league_id:league_id,
-    participants:participants,
-    status:status,
-    odds:odds,
-    image1:image1,
-    image2:image2
+    league_id: league_id,
+    participants: participants,
+    status: status,
+    odds: odds,
+    image1: image1,
+    image2: image2
   });
 
   newOdd.save().then(odd => {
@@ -47,13 +49,13 @@ exports.createOdd = function(req, res, next) {
 
 exports.getSingle = function(req, res, next) {
   oddModel.findById(req.params.id, (err, theOdd) => {
-      if (err) {
-        res.json(err);
-        return;
-      }
+    if (err) {
+      res.json(err);
+      return;
+    }
 
-      res.json(theOdd);
-    });
+    res.json(theOdd);
+  });
 };
 
 exports.editOdd = function(req, res, next) {
@@ -77,7 +79,9 @@ exports.editOdd = function(req, res, next) {
 };
 
 exports.deleteOdd = function(req, res, next) {
-  oddModel.remove({ _id: req.params.id }, (err) => {
+  oddModel.remove({
+    _id: req.params.id
+  }, (err) => {
     if (err) {
       res.json(err);
       return;

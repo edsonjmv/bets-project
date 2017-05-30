@@ -25,7 +25,7 @@ export class BoardComponent implements OnInit {
   constructor(private odd: OddService, private tick: TicketService, private session: SessionService, private router: Router) { }
 
   ngOnInit() {
-    this.user=this.session.loggedUser;
+    this.user = this.session.loggedUser;
     if (this.user === undefined) {
       this.router.navigate(['/login']);
     }
@@ -41,21 +41,21 @@ export class BoardComponent implements OnInit {
       });
   }
 
-addOdd(choose) {
-  let index = this.betChoosen.findIndex(x => x.teamChoose == choose.teamChoose);
-  if (index === -1) {
-    let same = this.betChoosen.findIndex(x => x.oddId == choose.oddId);
-    if (same === -1) {
-      this.betChoosen.push(choose);
+  addOdd(choose) {
+    let index = this.betChoosen.findIndex(x => x.teamChoose == choose.teamChoose);
+    if (index === -1) {
+      let same = this.betChoosen.findIndex(x => x.oddId == choose.oddId);
+      if (same === -1) {
+        this.betChoosen.push(choose);
+      } else {
+        this.betChoosen.splice(same, 1);
+        this.betChoosen.push(choose);
+      }
     } else {
-      this.betChoosen.splice(same, 1);
-      this.betChoosen.push(choose);
+      this.betChoosen.splice(index, 1);
     }
-  } else {
-    this.betChoosen.splice(index, 1);
+    this.betChoosen = _.clone(this.betChoosen);
   }
-  this.betChoosen = _.clone(this.betChoosen);
-}
 
   getSportsOdd(elem) {
     this.odd.getOdds(elem)

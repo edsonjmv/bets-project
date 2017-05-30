@@ -1,9 +1,9 @@
 <div class="container-fluid tickets-cont">
-<div class="container-fluid go-bets">
-  <h4><a routerLink="/board">Go back to bets</a></h4>
-</div>
-<div *ngIf="user != undefined" class="container-fluid">
-  <span *ngFor="let ticket of tickets">
+  <div class="container-fluid go-bets">
+    <h4><a routerLink="/board">Go back to bets</a></h4>
+  </div>
+  <div *ngIf="user != undefined" class="container-fluid">
+    <span *ngFor="let ticket of tickets">
     <div class='container-fluid col-md-3 col-sm-4 ticket-boxes' *ngIf="user._id === ticket.user_id">
       <div class="inside-ticket">
         <div class="ticket-header">
@@ -27,10 +27,7 @@
           </tbody>
         </table>
       </div>
-
-
-    </div>
-  </span>
-
+</div>
+</span>
 </div>
 </div>

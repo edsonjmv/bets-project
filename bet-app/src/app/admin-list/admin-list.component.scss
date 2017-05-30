@@ -9,8 +9,10 @@ $white: #fff;
 }
 
 .inside-list {
-  border: 1px solid $white;
+  border-left: 1px solid $white;
   border-radius: 10px;
+  border-right: 1px solid $white;
+  border-top: 1px solid $white;
   margin: 0 auto;
 }
 

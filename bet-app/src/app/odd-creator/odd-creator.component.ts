@@ -26,7 +26,7 @@ export class OddCreatorComponent implements OnInit {
   constructor(private odd: OddService, private router: Router, private session: SessionService) { }
 
   ngOnInit() {
-    this.user=this.session.loggedUser;
+    this.user = this.session.loggedUser;
 
     if (this.user === undefined) {
       this.router.navigate(['/login']);
@@ -38,11 +38,11 @@ export class OddCreatorComponent implements OnInit {
   }
 
   createNewOdd() {
-      this.odd.createOdd(this.formInfo)
-        .subscribe(
-        (data) => this.successCb(data),
-        (err) => this.errorCb(err)
-        );
+    this.odd.createOdd(this.formInfo)
+      .subscribe(
+      (data) => this.successCb(data),
+      (err) => this.errorCb(err)
+      );
   }
 
   errorCb(err) {

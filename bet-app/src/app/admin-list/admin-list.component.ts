@@ -8,18 +8,19 @@ import { OddService } from '../odd.service';
 })
 export class AdminListComponent implements OnInit {
   allOdd;
+  pattern: string;
   constructor(private oddServ: OddService) { }
 
   ngOnInit() {
     this.getAll();
   }
 
-getAll(){
-  this.oddServ.getAllOdds()
-    .subscribe((allOdd) => {
-      this.allOdd = allOdd;
-    });
-}
+  getAll() {
+    this.oddServ.getAllOdds()
+      .subscribe((allOdd) => {
+        this.allOdd = allOdd;
+      });
+  }
 
   deleteOdd(eventId) {
     this.oddServ.remove(eventId)
@@ -27,9 +28,9 @@ getAll(){
         this.successCb();
       });
 
-    }
-    successCb() {
-      this.getAll()
-    }
+  }
+  successCb() {
+    this.getAll()
+  }
 
 }

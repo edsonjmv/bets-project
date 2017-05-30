@@ -1,7 +1,7 @@
 /*jshint esversion: 6*/
 const _ = require('lodash');
 const ticketModel = require('./ticket.model');
-const Ticket       = require('./ticket.model');
+const Ticket = require('./ticket.model');
 
 exports.createTicket = function(req, res, next) {
   const ticket = new Ticket({

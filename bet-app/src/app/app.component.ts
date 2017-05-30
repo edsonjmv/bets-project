@@ -8,7 +8,12 @@ import { SessionService } from './session.service';
 })
 export class AppComponent {
   title = 'app works!';
+  user;
 
-  constructor() { }
+  constructor(private session: SessionService) { }
+
+  ngOnInit() {
+    this.user = this.session.loggedUser;
+  }
 
 }

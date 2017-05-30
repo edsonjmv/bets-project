@@ -12,15 +12,15 @@ import {EditOddComponent} from './edit-odd/edit-odd.component';
 
 
 export const routes: Routes = [
-    {path: '', component: HomeComponent},
-    {path: 'board', component: BoardComponent},
-    {path: 'login', component: LoginComponent},
-    {path: 'signup', component: SignupComponent},
-    {path: 'tickets', component: TicketsComponent},
-    {path: 'create-odds', component: OddCreatorComponent},
-    {path: 'profile', component: ProfileComponent},
-    {path: 'edit-profile', component: EditProfileComponent},
-    {path: 'admin-list', component: AdminListComponent},
-    {path: 'odd/:id', component: EditOddComponent},
-    {path: '**', redirectTo: ''}
+  { path: '', component: HomeComponent },
+  { path: 'board', component: BoardComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'signup', component: SignupComponent },
+  { path: 'tickets', component: TicketsComponent },
+  { path: 'create-odds', component: OddCreatorComponent },
+  { path: 'profile', component: ProfileComponent },
+  { path: 'edit-profile', component: EditProfileComponent },
+  { path: 'admin-list', component: AdminListComponent },
+  { path: 'odd/:id', component: EditOddComponent },
+  { path: '**', redirectTo: '' }
 ];

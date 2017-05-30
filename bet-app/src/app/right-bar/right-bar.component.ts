@@ -24,7 +24,7 @@ export class RightBarComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.user=this.session.loggedUser;
+    this.user = this.session.loggedUser;
     this.calculator = this.prize;
   }
 

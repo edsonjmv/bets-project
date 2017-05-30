@@ -1,3 +1,15 @@
+<!-- <div>
+  <label for="things_name"> Search thing: </label>
+  <input id="things_name" placeholder="thing name" type="text" [(ngModel)]="pattern">
+</div>
+
+    <h4> Stuff list </h4>
+    <ul>
+      <li *ngFor="let odd of allOdd | filter:'participants':pattern; let i = index">
+        {{ i+1 }}) {{ odd.participants }}
+      </li>
+    </ul> -->
+
 <div class=container-fluid>
   <div class="listing col-sm-3" *ngFor="let odd of allOdd">
     <div class="inside-list">

@@ -36,20 +36,4 @@ export class MainBarComponent implements OnInit {
     this.highlighted2Div = !this.highlighted2Div;
   }
 
-  // getStyle() {
-  //   if(this.showStyle) {
-  //     return "#4cae4c";
-  //   } else {
-  //     return "";
-  //   }
-  // }
-  //
-  // getStyle2() {
-  //   if(this.showStyle2) {
-  //     return "#4cae4c";
-  //   } else {
-  //     return "";
-  //   }
-  // }
-
 }

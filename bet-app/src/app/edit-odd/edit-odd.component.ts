@@ -42,9 +42,9 @@ export class EditOddComponent implements OnInit {
         this.successCb();
       });
 
-    }
-    successCb() {
-      this.router.navigate(['/admin-list'])
-    }
+  }
+  successCb() {
+    this.router.navigate(['/admin-list'])
+  }
 
 }

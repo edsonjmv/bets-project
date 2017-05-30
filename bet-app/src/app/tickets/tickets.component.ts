@@ -15,7 +15,7 @@ export class TicketsComponent implements OnInit {
   constructor(private ticket: TicketService, private session: SessionService, private router: Router) { }
 
   ngOnInit() {
-    this.user=this.session.loggedUser;
+    this.user = this.session.loggedUser;
 
     if (this.user === undefined) {
       this.router.navigate(['/login']);

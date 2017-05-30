@@ -27,6 +27,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { AdminListComponent } from './admin-list/admin-list.component';
 import { EditOddComponent } from './edit-odd/edit-odd.component';
+import { FilterPipe } from './pipes/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { EditOddComponent } from './edit-odd/edit-odd.component';
     ProfileComponent,
     EditProfileComponent,
     AdminListComponent,
-    EditOddComponent
+    EditOddComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

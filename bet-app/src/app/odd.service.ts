@@ -31,7 +31,7 @@ export class OddService {
       });
   }
 
-  createOdd(data){
+  createOdd(data) {
     return this.http.post(`${this.BASE_URL}/odds`, data)
       .map(res => res.json())
       .catch(this.handleError);

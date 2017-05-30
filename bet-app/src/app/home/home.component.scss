@@ -2,6 +2,35 @@ $link-back: ('http://redboxpictures.com/commercial/wp-content/uploads/2011/01/sp
 $transp-back: rgba(26, 26, 26, .7);
 $white: #fff;
 $black: #000;
+$back-color: #1a1a1a;
+$back-1: 'http://image.nj.com/home/njo-media/width620/img/sports/nfldraft_impact/photo/share243png-97345e9d492aeed1.png';
+$back-2: 'http://image.masslive.com/home/mass-media/width620/img/celtics_impact/photo/predictions-cover-slidepng-68a7f73188d3c4ad.png';
+$back-3: 'http://media.nj.com/realtimesports_impact/photo/share134png-4748fcf44e2fea43.png';
+
+.first-sub {
+  background: url($back-1);
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 20px solid $back-color;
+  border-radius: 50px;
+  padding: 30px;
+}
+
+.second-sub {
+  background: url($back-2);
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 20px solid $back-color;
+  border-radius: 50px;
+}
+
+.third-sub {
+  background: url($back-3);
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 20px solid $back-color;
+  border-radius: 50px;
+}
 
 .main-index {
   background: linear-gradient(0deg, $transp-back, $transp-back), url($link-back);
@@ -20,16 +49,15 @@ $black: #000;
 
 .sub-main-box {
   font-size: 12px;
-  height: 300px;
+  height: 220px;
   margin-bottom: 50px;
   margin-top: 30px;
   padding: 30px;
-  // border: 1px solid $white;
-  text-align: justify;
+  text-align: center;
 }
 
 .main-footer {
-  font-size: 8px;
+  font-size: 12px;
   text-align: center;
 }
 

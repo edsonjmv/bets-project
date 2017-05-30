@@ -5,7 +5,8 @@ import {LoginComponent} from './login/login.component';
 import {SignupComponent} from './signup/signup.component';
 import {HomeComponent} from './home/home.component';
 import {OddCreatorComponent} from './odd-creator/odd-creator.component';
-
+import {ProfileComponent} from './profile/profile.component';
+import {EditProfileComponent} from './edit-profile/edit-profile.component';
 
 export const routes: Routes = [
     {path: '', component: HomeComponent},
@@ -14,5 +15,7 @@ export const routes: Routes = [
     {path: 'signup', component: SignupComponent},
     {path: 'tickets', component: TicketsComponent},
     {path: 'create-odds', component: OddCreatorComponent},
+    {path: 'profile', component: ProfileComponent},
+    {path: 'edit-profile', component: EditProfileComponent},
     {path: '**', redirectTo: ''}
 ];

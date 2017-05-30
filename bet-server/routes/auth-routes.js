@@ -16,6 +16,7 @@ authRoutes.post("/signup", (req, res, next) => {
   let last_name = req.body.last_name;
   let image = req.body.image;
   let cashier = req.body.cashier;
+  let admin = req.body.admin;
 
   if (!username || !password) {
     res.status(400).json({
@@ -43,7 +44,8 @@ authRoutes.post("/signup", (req, res, next) => {
       name,
       last_name,
       image,
-      cashier
+      cashier,
+      admin
     });
 
     newUser.save((err) => {

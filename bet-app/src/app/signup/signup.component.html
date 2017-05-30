@@ -10,6 +10,7 @@
             <!-- <input type="text" class="form-control" placeholder="Image URL" required [(ngModel)]="formInfo.image" name="image"> -->
             <input type="text" class="form-control" placeholder="Username" required [(ngModel)]="formInfo.username" name="username">
             <input type="password" class="form-control" placeholder="Password" required [(ngModel)]="formInfo.password" name="password">
+            <!-- <input type="text" class="form-control" placeholder="Admin" required autofocus [(ngModel)]="formInfo.admin" name="admin"> -->
             <button class="btn btn-lg btn-success btn-block" (click)="signup()">Register</button>
             <a routerLink="/login" class="pull-right need-help">Already have an account?</a><span class="clearfix"></span>
             <p class="error-text" *ngIf="error">{{error}}</p>

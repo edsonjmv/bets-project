@@ -11,9 +11,10 @@ export class MainBarComponent implements OnInit {
   @Input() odd: any;
   @Output() onAdd = new EventEmitter();
   odds;
-  highlightedDiv: number;
-  highlighted2Div: number;
-
+  highlightedDiv: boolean = false;
+  highlighted2Div: boolean = false;
+  showStyle: false;
+  showStyle2: false;
 
   constructor(private oddServ: OddService) { }
 
@@ -21,24 +22,35 @@ export class MainBarComponent implements OnInit {
 
   }
 
-  onOddAdd(teamChoose, oddChoose) {
-    this.onAdd.emit({ teamChoose, oddChoose })
+  onOddAdd(teamChoose, oddChoose, oddId) {
+    this.onAdd.emit({ teamChoose, oddChoose, oddId })
   }
 
-  toggleHighlight(newValue: number) {
-    if (this.highlightedDiv === newValue) {
-      this.highlightedDiv = 0;
-    } else {
-      this.highlightedDiv = newValue;
-    }
+  toggleHighlight() {
+    console.log(this.highlightedDiv)
+    this.highlighted2Div = false;
+    this.highlightedDiv = !this.highlightedDiv;
   }
 
-  toggleHighlight2(newValue: number) {
-    if (this.highlighted2Div === newValue) {
-      this.highlighted2Div = 0;
-    } else {
-      this.highlighted2Div = newValue;
-    }
+  toggleHighlight2() {
+    this.highlightedDiv = false;
+    this.highlighted2Div = !this.highlighted2Div;
   }
+
+  // getStyle() {
+  //   if(this.showStyle) {
+  //     return "#4cae4c";
+  //   } else {
+  //     return "";
+  //   }
+  // }
+  //
+  // getStyle2() {
+  //   if(this.showStyle2) {
+  //     return "#4cae4c";
+  //   } else {
+  //     return "";
+  //   }
+  // }
 
 }

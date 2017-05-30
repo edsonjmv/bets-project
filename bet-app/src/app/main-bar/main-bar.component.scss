@@ -2,6 +2,7 @@ $black: #000;
 $white: #fff;
 $link-color: #59a27a;
 $link-dark-color: #130;
+$green-but: #4cae4c;
 
 button {
   color: $black;
@@ -29,6 +30,11 @@ button {
   &:focus {
     border: 0;
   }
+}
+
+.btn-choose {
+  background-color: $green-but;
+  color: $white;
 }
 
 @media (min-width: 991px) and (max-width: 1045px) {

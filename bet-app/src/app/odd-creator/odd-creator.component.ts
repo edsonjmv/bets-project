@@ -31,6 +31,10 @@ export class OddCreatorComponent implements OnInit {
     if (this.user === undefined) {
       this.router.navigate(['/login']);
     }
+
+    if (this.user === undefined || this.user.admin === false) {
+      this.router.navigate(['/']);
+    }
   }
 
   createNewOdd() {

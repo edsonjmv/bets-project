@@ -4,6 +4,7 @@ import { TicketService } from '../ticket.service';
 import * as _ from "lodash";
 import { SessionService } from '../session.service'
 import { RouterModule, Router } from '@angular/router';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-board',
@@ -43,7 +44,13 @@ export class BoardComponent implements OnInit {
 addOdd(choose) {
   let index = this.betChoosen.findIndex(x => x.teamChoose == choose.teamChoose);
   if (index === -1) {
-    this.betChoosen.push(choose)
+    let same = this.betChoosen.findIndex(x => x.oddId == choose.oddId);
+    if (same === -1) {
+      this.betChoosen.push(choose);
+    } else {
+      this.betChoosen.splice(same, 1);
+      this.betChoosen.push(choose);
+    }
   } else {
     this.betChoosen.splice(index, 1);
   }

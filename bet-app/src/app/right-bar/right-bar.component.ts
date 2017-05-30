@@ -18,11 +18,13 @@ export class RightBarComponent implements OnInit {
   calculator = 0;
   prize: any = 1;
   multip: any;
+  user;
 
   constructor(private ticket: TicketService, private router: Router, private session: SessionService) {
   }
 
   ngOnInit() {
+    this.user=this.session.loggedUser;
     this.calculator = this.prize;
   }
 
@@ -58,6 +60,7 @@ export class RightBarComponent implements OnInit {
         this.router.navigate(['/tickets']);
       }
     );
+    this.session.loggedUser.cashier = this.session.loggedUser.cashier - this.amount;
     $(".choose-boxes").remove();
   }
 

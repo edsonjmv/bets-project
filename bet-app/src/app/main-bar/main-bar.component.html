@@ -2,6 +2,6 @@
   <img height="60px" width="60px" style="float: left" src="{{odd.image1}}">
   <img height="60px" width="60px" style="float: right" src="{{odd.image2}}">
   <p>{{odd.participants[0]}} vs {{odd.participants[1]}}</p>
-  <button class="btn btn-default" (click)="onOddAdd(odd.participants[0], odd.odds[0])" (click)="toggleHighlight(1);" [ngClass]="{'btn-success': highlightedDiv === 1}">{{odd.odds[0]}}</button>
-  <button class="btn btn-default" (click)="onOddAdd(odd.participants[1], odd.odds[1])" (click)="toggleHighlight2(1);" [ngClass]="{'btn-success': highlighted2Div === 1}">{{odd.odds[1]}}</button>
+  <button class="btn btn-default" (click)="onOddAdd(odd.participants[0], odd.odds[0], odd._id)" (click)="toggleHighlight();" [ngClass]="{'btn-success': highlightedDiv}">{{odd.odds[0]}}</button>
+  <button class="btn btn-default" (click)="onOddAdd(odd.participants[1], odd.odds[1], odd._id)" (click)="toggleHighlight2();" [ngClass]="{'btn-success': highlighted2Div}">{{odd.odds[1]}}</button>
 </div>

@@ -20,6 +20,10 @@ const userSchema = new Schema({
   },
   image: {
     type: String
+  },
+  admin: {
+    type: Boolean,
+    default: false
   }
 }, {
   timestamps: {

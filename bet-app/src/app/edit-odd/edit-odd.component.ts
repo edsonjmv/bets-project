@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { OddService } from '../odd.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { SessionService } from '../session.service'
 
 @Component({
   selector: 'app-edit-odd',
@@ -21,9 +22,22 @@ export class EditOddComponent implements OnInit {
   user;
   odd;
 
-  constructor(private oddServ: OddService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private oddServ: OddService, private route: ActivatedRoute, private router: Router, private session: SessionService) { }
 
   ngOnInit() {
+
+    this.session.isLoggedIn()
+       .subscribe(
+         (user) => {
+           this.user = user;
+           this.session.getLoginEmitter().subscribe(
+             user => this.user = user);
+             if (this.user === undefined) {
+               this.router.navigate(['/login']);
+             }
+          }
+       );
+
     this.route.params.subscribe(params => {
       this.getSingle(params['id']);
     });

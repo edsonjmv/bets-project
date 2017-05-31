@@ -21,7 +21,6 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { HomeComponent } from './home/home.component';
-import { AdminComponent } from './admin/admin.component';
 import { OddCreatorComponent } from './odd-creator/odd-creator.component';
 import { ProfileComponent } from './profile/profile.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
@@ -41,7 +40,6 @@ import { FilterPipe } from './pipes/filter.pipe';
     LoginComponent,
     SignupComponent,
     HomeComponent,
-    AdminComponent,
     OddCreatorComponent,
     ProfileComponent,
     EditProfileComponent,

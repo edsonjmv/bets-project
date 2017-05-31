@@ -90,9 +90,7 @@ authRoutes.post("/login", function(req, res, next) {
 
 authRoutes.post("/logout", function(req, res) {
   req.logout();
-  res.status(200).json({
-    message: 'Success'
-  });
+  res.status(200).json(req.user);
 });
 
 authRoutes.get("/loggedin", function(req, res) {

@@ -13,7 +13,7 @@ export class SessionService {
 
   constructor(private http: Http) { }
 
-  getLoginEmitter(): EventEmitter<any> {
+  getLoginEmitter() {
     return this.loginEvent;
   }
 
@@ -22,16 +22,18 @@ export class SessionService {
   }
 
   signup(user) {
-    return this.http.post(`${this.BASE_URL}/signup`, user)
-      .map(res => res.json())
-      .catch(this.handleError);
+    return this.http.post(`${this.BASE_URL}/signup`, user, { withCredentials: true })
+    .map(res => {
+      this.loginEvent.emit(res.json());
+      return res => res.json();
+    })
+    .catch(this.handleError);
   }
 
   login(user) {
     return this.http.post(`${this.BASE_URL}/login`, user, { withCredentials: true })
       .map(res => {
-        this.loggedUser = res.json();
-        this.loginEvent.emit(this.loggedUser);
+        this.loginEvent.emit(res.json());
         return res => res.json();
       })
       .catch(this.handleError);
@@ -39,14 +41,17 @@ export class SessionService {
 
   logout() {
     return this.http.post(`${this.BASE_URL}/logout`, {}, { withCredentials: true })
-      .map(res => res.json())
-      .catch(this.handleError);
+    .map(res => {
+      this.loginEvent.emit(res.json());
+      return res => res.json();
+    })
+    .catch(this.handleError);
   }
 
   isLoggedIn() {
     return this.http.get(`${this.BASE_URL}/loggedin`, { withCredentials: true })
-      .map(res => res.json())
-      .catch((err) => this.handleError(err));
+    .map(res => res.json())
+    .catch(this.handleError);
   }
 
   getPrivateData() {

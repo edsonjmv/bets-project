@@ -12,10 +12,17 @@ export class ProfileComponent implements OnInit {
   constructor(private session: SessionService, private router: Router) { }
 
   ngOnInit() {
-    this.user = this.session.loggedUser;
-    if (this.user === undefined) {
-      this.router.navigate(['/login']);
-    }
+    this.session.isLoggedIn()
+       .subscribe(
+         (user) => {
+           this.user = user;
+           this.session.getLoginEmitter().subscribe(
+             user => this.user = user);
+             if (this.user === undefined) {
+               this.router.navigate(['/login']);
+             }
+          }
+       );
   }
 
 }

@@ -15,11 +15,17 @@ export class TicketsComponent implements OnInit {
   constructor(private ticket: TicketService, private session: SessionService, private router: Router) { }
 
   ngOnInit() {
-    this.user = this.session.loggedUser;
-
-    if (this.user === undefined) {
-      this.router.navigate(['/login']);
-    }
+    this.session.isLoggedIn()
+       .subscribe(
+         (user) => {
+           this.user = user;
+           this.session.getLoginEmitter().subscribe(
+             user => this.user = user);
+             if (this.user === undefined) {
+               this.router.navigate(['/login']);
+             }
+          }
+       );
 
     this.ticket.getTickets()
       .subscribe((tickets) => {

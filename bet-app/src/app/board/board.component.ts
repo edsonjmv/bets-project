@@ -25,10 +25,6 @@ export class BoardComponent implements OnInit {
   constructor(private odd: OddService, private tick: TicketService, private session: SessionService, private router: Router) { }
 
   ngOnInit() {
-    this.user = this.session.loggedUser;
-    if (this.user === undefined) {
-      this.router.navigate(['/login']);
-    }
 
     this.odd.getLeagues()
       .subscribe((leagues) => {
@@ -39,6 +35,18 @@ export class BoardComponent implements OnInit {
       .subscribe((allOdd) => {
         this.allOdd = allOdd;
       });
+
+      this.session.isLoggedIn()
+      .subscribe(
+        (user) => {
+          this.user = user;
+          if (this.user === undefined) {
+            this.router.navigate(['/login']);
+          }
+        }
+      );
+      this.session.getLoginEmitter().subscribe(
+        user => {this.user = user});
   }
 
   addOdd(choose) {

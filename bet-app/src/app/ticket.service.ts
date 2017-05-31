@@ -11,13 +11,13 @@ export class TicketService {
 
   constructor(private http: Http) { }
   makeBet(betForm) {
-    return this.http.post(`${this.BASE_URL}/ticket`, betForm)
+    return this.http.post(`${this.BASE_URL}/ticket`, betForm, {withCredentials: true})
       .map(res => res.json())
       .catch(this.handleError);
   }
 
   getTickets() {
-    return this.http.get(`${this.BASE_URL}/ticket`)
+    return this.http.get(`${this.BASE_URL}/ticket`, {withCredentials: true})
       .map((res) => {
         return res.json()
       });

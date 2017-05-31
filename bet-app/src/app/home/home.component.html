@@ -2,8 +2,8 @@
   <div class='container'>
     <div class='buttons-box'>
       <h2 class="main-title">Bets Trace</h2>
-      <button *ngIf="user === undefined" class="btn btn-success home-btn" routerLink="login">Sign In</button>
-      <button *ngIf="user === undefined" class="btn btn-success home-btn" routerLink="signup">Create account</button>
+      <button *ngIf="!user" class="btn btn-success home-btn" routerLink="login">Sign In</button>
+      <button *ngIf="!user" class="btn btn-success home-btn" routerLink="signup">Create account</button>
     </div>
   </div>
 </div>

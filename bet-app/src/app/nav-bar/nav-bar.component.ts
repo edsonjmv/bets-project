@@ -9,13 +9,19 @@ import { SessionService } from '../session.service'
 export class NavBarComponent implements OnInit {
   @Input() isAuthenticated: boolean;
   error: any;
-  loggedUser: any;
+  user: any;
 
-  constructor(private session: SessionService) { }
+  constructor(private session: SessionService) {}
 
   ngOnInit() {
-    this.session.getLoginEmitter().subscribe(
-      user => this.loggedUser = user);
+    this.session.isLoggedIn()
+       .subscribe(
+         (user) => {
+           this.user = user;
+          }
+       );
+       this.session.getLoginEmitter().subscribe(
+         user => this.user = user);
   }
 
   logout() {
@@ -28,11 +34,11 @@ export class NavBarComponent implements OnInit {
 
   errorCb(err) {
     this.error = err;
-    this.loggedUser = null;
+    this.user = null;
   }
 
   successCb(user) {
-    this.loggedUser = user;
+    this.user = user;
     this.error = null;
   }
 

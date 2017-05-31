@@ -14,6 +14,8 @@ import * as $ from 'jquery';
 })
 export class RightBarComponent implements OnInit {
   @Input() betChoosen: any;
+  // @Input() user: any;
+
   amount: number;
   calculator = 0;
   prize: any = 1;
@@ -24,8 +26,15 @@ export class RightBarComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.user = this.session.loggedUser;
-    this.calculator = this.prize;
+    this.session.isLoggedIn()
+       .subscribe(
+         (user) => {
+           this.user = user;
+          }
+       );
+       this.session.getLoginEmitter().subscribe(
+        user => {this.user = user});
+        this.calculator = this.prize;
   }
 
   ngOnChanges(change) {
@@ -52,7 +61,7 @@ export class RightBarComponent implements OnInit {
       risk: this.amount,
       prize: this.prize,
       bets: this.betChoosen,
-      user_id: this.session.loggedUser._id
+      user_id: this.user._id
     }
     this.ticket.makeBet(betForm).subscribe(
       (bet) => {
@@ -60,7 +69,7 @@ export class RightBarComponent implements OnInit {
         this.router.navigate(['/tickets']);
       }
     );
-    this.session.loggedUser.cashier = this.session.loggedUser.cashier - this.amount;
+    this.user.cashier = this.user.cashier - this.amount;
     $(".choose-boxes").remove();
   }
 

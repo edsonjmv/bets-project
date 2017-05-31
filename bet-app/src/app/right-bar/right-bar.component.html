@@ -1,50 +1,51 @@
-<div class='ticket-container'>
-  <div class='ticket-head'>
-    <div class="form-group">
-      <label class="sr-only" for="exampleInputAmount">Risk Amount</label>
-      <div class="input-group risk-input">
-        <div class="input-group-addon">€</div>
-        <input type="text" class="form-control input-amount" id="exampleInputAmount" placeholder="Risk" autofocus [(ngModel)]="amount" (keyup)="getTotal($event)">
+
+  <div class='ticket-container'>
+    <div class='ticket-head'>
+      <div class="form-group">
+        <label class="sr-only" for="exampleInputAmount">Risk Amount</label>
+        <div class="input-group risk-input">
+          <div class="input-group-addon">€</div>
+          <input type="text" class="form-control input-amount" id="exampleInputAmount" placeholder="Risk" autofocus [(ngModel)]="amount" (keyup)="getTotal($event)">
+        </div>
       </div>
+      <span class='ticket-input'><p *ngIf="prize > 0" class="prize-p">{{prize | currency:'EUR':true}}</p></span>
     </div>
-    <span class='ticket-input'><p *ngIf="prize > 0" class="prize-p">{{prize | currency:'EUR':true}}</p></span>
-  </div>
-  <div class="button-box">
-    <button type="button" class="btn btn-success bet-button" (click)="makeBet()">Place Bet</button>
+    <div class="button-box">
+      <button type="button" class="btn btn-success bet-button" (click)="makeBet()">Place Bet</button>
+    </div>
+
+    <div class="choose-boxes">
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th width="70%">Selection</th>
+            <th width="20%">Odd</th>
+            <th width="10%"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let choose of betChoosen">
+            <td>{{choose.teamChoose}}</td>
+            <td>{{choose.oddChoose}}</td>
+            <td><span class="glyphicon glyphicon-remove icon-remove"></span></td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr *ngIf="betChoosen.length > 0">
+            <td style="text-align: right;">Total</td>
+            <td>
+              <p>{{multip}}</p>
+            </td>
+            <td></td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
   </div>
 
-  <div class="choose-boxes">
-
-    <table class="table">
-      <thead>
-        <tr>
-          <th width="70%">Selection</th>
-          <th width="20%">Odd</th>
-          <th width="10%"></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let choose of betChoosen">
-          <td>{{choose.teamChoose}}</td>
-          <td>{{choose.oddChoose}}</td>
-          <td><span class="glyphicon glyphicon-remove icon-remove"></span></td>
-        </tr>
-      </tbody>
-      <tfoot>
-        <tr *ngIf="betChoosen.length > 0">
-          <td style="text-align: right;">Total</td>
-          <td>
-            <p>{{multip}}</p>
-          </td>
-          <td></td>
-        </tr>
-      </tfoot>
-    </table>
+  <div class="footer navbar-fixed-bottom my-footer">
+    <input style="width:20%; float:left; height:100%; text-align: center;" type="text" class="form-control" id="exampleInputAmount" placeholder="Risk" [(ngModel)]="amount" (keyup)="getTotal($event)">
+    <span style="width:40%; float:left; height:100%; text-align: right;" class='ticket-input'><span *ngIf="prize > 0" class="prize-p">{{prize | currency:'EUR':true}}</span></span>
+    <button style="width:30%; float:right; height:100%;" type="button" class="btn btn-success bet-button" (click)="makeBet()">Place Bet</button>
   </div>
-</div>
-
-<div class="footer navbar-fixed-bottom my-footer">
-  <input style="width:20%; float:left; height:100%; text-align: center;" type="text" class="form-control" id="exampleInputAmount" placeholder="Risk" [(ngModel)]="amount" (keyup)="getTotal($event)">
-  <span style="width:40%; float:left; height:100%; text-align: right;" class='ticket-input'><span *ngIf="prize > 0" class="prize-p">{{prize | currency:'EUR':true}}</span></span>
-  <button style="width:30%; float:right; height:100%;" type="button" class="btn btn-success bet-button" (click)="makeBet()">Place Bet</button>
-</div>

@@ -15,17 +15,18 @@ export class AdminListComponent implements OnInit {
   constructor(private oddServ: OddService, private session: SessionService, private router: Router) { }
 
   ngOnInit() {
+    this.session.getLoginEmitter().subscribe(
+      user => this.user = user);
     this.session.isLoggedIn()
        .subscribe(
          (user) => {
            this.user = user;
-           this.session.getLoginEmitter().subscribe(
-             user => this.user = user);
              if (this.user === undefined) {
                this.router.navigate(['/login']);
              }
           }
        );
+
 
     this.getAll();
   }

@@ -15,7 +15,6 @@ import * as $ from 'jquery';
 export class RightBarComponent implements OnInit {
   @Input() betChoosen: any;
   // @Input() user: any;
-
   amount: number;
   calculator = 0;
   prize: any = 1;
@@ -64,15 +63,33 @@ export class RightBarComponent implements OnInit {
       user_id: this.user._id
     }
     this.ticket.makeBet(betForm).subscribe(
-      (bet) => {
-        this.successCb(bet);
+      () => {
+        this.successCb();
         this.router.navigate(['/tickets']);
       }
     );
     this.user.cashier = this.user.cashier - this.amount;
+    this.editUserCash(this.user, this.user);
     $(".choose-boxes").remove();
   }
 
-  successCb(bet) { }
+  editUserCash(user, data) {
+    this.session.editCashier(user, data)
+      .subscribe(() => {
+        this.successCb();
+      });
+  }
+
+  successCb() {
+    this.session.isLoggedIn()
+       .subscribe(
+         (user) => {
+           this.user = user;
+          }
+       );
+       this.session.getLoginEmitter().subscribe(
+        user => {this.user = user});
+        this.calculator = this.prize;
+  }
 
 }

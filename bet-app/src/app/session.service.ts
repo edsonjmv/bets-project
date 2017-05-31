@@ -59,4 +59,15 @@ export class SessionService {
       .map(res => res.json())
       .catch(this.handleError);
   }
+
+  editCashier(user, data) {
+    return this.http.put(`http://localhost:3000/user/${user._id}`, data)
+    .map(res => {
+      this.loginEvent.emit(res.json());
+      return res => res.json();
+    })
+    .catch(this.handleError);
+  }
+
+
 }

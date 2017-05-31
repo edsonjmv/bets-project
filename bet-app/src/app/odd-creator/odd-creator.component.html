@@ -25,8 +25,8 @@
             <input type="text" class="form-control" placeholder="Odd" required [(ngModel)]="formInfo.odds[1]" name="odds[1]">
             <input type="text" class="form-control" placeholder="Image URL" required [(ngModel)]="formInfo.image2" name="image2">
             <button class="btn btn-lg btn-success btn-block" (click)="createNewOdd()">Create</button>
+            <a routerLink="/profile" class="pull-right need-help">Back to profile</a><span class="clearfix"></span>
             <p class="error-text" *ngIf="error">{{error}}</p>
-            <a routerLink="/admin-list">Admin List</a>
           </form>
         </div>
       </div>

@@ -1,14 +1,7 @@
-<!-- <div>
-  <label for="things_name"> Search thing: </label>
-  <input id="things_name" placeholder="thing name" type="text" [(ngModel)]="pattern">
+<div style="text-align: center">
+  <a class="btn"  routerLink="/profile">Back to profile</a>
+  <a routerLink="/create-odds" class="btn btn-primary admin-butt">Create new event</a>
 </div>
-
-    <h4> Stuff list </h4>
-    <ul>
-      <li *ngFor="let odd of allOdd | filter:'participants':pattern; let i = index">
-        {{ i+1 }}) {{ odd.participants }}
-      </li>
-    </ul> -->
 
 <div class=container-fluid>
   <div class="listing col-sm-3" *ngFor="let odd of allOdd">

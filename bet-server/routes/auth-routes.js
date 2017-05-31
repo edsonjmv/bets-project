@@ -4,7 +4,6 @@ const passport = require('passport');
 const bcrypt = require("bcrypt");
 const bcryptSalt = 10;
 
-// Our user model
 const User = require('../api/user/user.model');
 
 const authRoutes = express.Router();

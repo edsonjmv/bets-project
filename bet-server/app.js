@@ -36,6 +36,7 @@ const index = require('./routes/index');
 const leaguesRoutes = require('./api/league/index');
 const oddRoutes = require('./api/odd/index');
 const ticketRoutes = require('./api/ticket/index');
+const userRoutes = require('./api/user/index');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -74,6 +75,7 @@ app.use('/leagues', leaguesRoutes);
 app.use('/odds', oddRoutes);
 app.use('/auth', authRoutes);
 app.use('/ticket', ticketRoutes);
+app.use('/user', userRoutes);
 
 // app.use((req, res, next) => {
 //   res.sendfile(__dirname + '/public/index.html');

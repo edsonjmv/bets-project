@@ -60,7 +60,7 @@ export class OddCreatorComponent implements OnInit {
   successCb(data) {
     this.data = data;
     this.error = null;
-    this.router.navigate(['/board'])
+    this.router.navigate(['/profile'])
   }
 
 }

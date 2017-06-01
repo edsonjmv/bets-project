@@ -5,7 +5,7 @@
         <label class="sr-only" for="exampleInputAmount">Risk Amount</label>
         <div class="input-group risk-input">
           <div class="input-group-addon">€</div>
-          <input type="text" class="form-control input-amount" id="exampleInputAmount" placeholder="Risk" autofocus [(ngModel)]="amount" (keyup)="getTotal($event)">
+          <input type="text" class="form-control input-amount" id="exampleInputAmount" placeholder="Risk" autofocus [(ngModel)]="amount" (keyup)="getTotal()">
         </div>
       </div>
       <span class='ticket-input'><p *ngIf="prize > 0" class="prize-p">{{prize | currency:'EUR':true}}</p></span>
@@ -45,7 +45,7 @@
   </div>
 
   <div class="footer navbar-fixed-bottom my-footer">
-    <input style="width:20%; float:left; height:100%; text-align: center;" type="text" class="form-control" id="exampleInputAmount" placeholder="Risk" [(ngModel)]="amount" (keyup)="getTotal($event)">
+    <input style="width:20%; float:left; height:100%; text-align: center;" type="text" class="form-control" id="exampleInputAmount" placeholder="Risk" [(ngModel)]="amount" (keyup)="getTotal()">
     <span style="width:40%; float:left; height:100%; text-align: right;" class='ticket-input'><span *ngIf="prize > 0" class="prize-p">{{prize | currency:'EUR':true}}</span></span>
     <button style="width:30%; float:right; height:100%;" type="button" class="btn btn-success bet-button" (click)="makeBet()">Place Bet</button>
   </div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SessionService } from '../session.service'
+import { RouterModule, Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-users',
@@ -8,10 +9,26 @@ import { SessionService } from '../session.service'
 })
 export class AdminUsersComponent implements OnInit {
   users;
+  user;
 
-  constructor(private session: SessionService) { }
+  constructor(private session: SessionService, private router: Router) { }
 
   ngOnInit() {
+    this.session.getLoginEmitter().subscribe(
+      user => this.user = user);
+    this.session.isLoggedIn()
+       .subscribe(
+         (user) => {
+           this.user = user;
+             if (this.user === undefined) {
+               this.router.navigate(['/login']);
+             }
+             if (this.user.admin === false) {
+               this.router.navigate(['/']);
+             }
+          }
+       );
+
     this.getAllUsers();
   }
 
@@ -33,20 +50,16 @@ export class AdminUsersComponent implements OnInit {
     this.getAllUsers()
   }
 
-  editCash(user, amount){
-    user.cashier = parseFloat(user.cashier) + parseFloat(amount);
-    console.log(user.cashier)
+  editCash(single, amount){
+    single.cashier = parseFloat(single.cashier) + parseFloat(amount);
+    this.editUserCash(single, single)
   }
 
-//   this.user.cashier = this.user.cashier - this.amount;
-//   this.editUserCash(this.user, this.user);
-//
-//
-// editUserCash(user, data) {
-//   this.session.editCashier(user, data)
-//     .subscribe(() => {
-//       this.successCb();
-//     });
-// }
+editUserCash(user, data) {
+  this.session.updatingCashierAdm(user, data)
+    .subscribe(() => {
+      this.successCb();
+    });
+}
 
 }

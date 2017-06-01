@@ -1,27 +1,14 @@
 <div class="container-fluid users-box">
   <div class="col-lg-3 col-sm-4 single-box" *ngFor="let single of users">
-    <img width="60" height="60" src="{{single.image}}" alt="">
+    <img width="80" height="80" src="{{single.image}}" alt="">
     <p>{{single.name}} {{single.last_name}}</p>
-    <p>{{single.username}}</p>
-    <p>{{single.cashier | currency:'EUR':true}}</p>
-    <button class="btn btn-basic edit-usr-btn" data-toggle="modal" data-target="#myModal" style="color: black;">Funds</button>
-    <button class="btn btn-danger edit-usr-btn" (click)="deleteSingleUser(single._id)">Remove</button>
-    <div id="myModal" class="modal fade modal-funds" role="dialog">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h4 class="modal-title">{{single.username}}</h4>
-          </div>
-          <div class="modal-body">
-            <input type="text" placeholder="€0" style="text-align: center; color: black;" #inputFunds>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" (click)="editCash(single, inputFunds.value)" data-dismiss="modal">Add funds</button>
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          </div>
-        </div>
-      </div>
-    </div>
+    <p>Username: {{single.username}}</p>
+    <p>Cashier: <span style="font-size:24px;color:green;">{{single.cashier | currency:'EUR':true}}</span></p>
+    <section class="funds-sections">
+      <input type="text" placeholder="€0" class="inpt-amount" #inputFunds>
+      <button type="button" class="btn-xs btn-success btn-funds" (click)="editCash(single, inputFunds.value)">Add funds</button>
+    </section>
+    <button class="btn-sm btn-default edit-usr-btn">Tickets</button>
+    <button class="btn-sm btn-danger edit-usr-btn" (click)="deleteSingleUser(single._id)">Remove</button>
   </div>
 </div>

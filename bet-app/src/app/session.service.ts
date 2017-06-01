@@ -69,6 +69,14 @@ export class SessionService {
     .catch(this.handleError);
   }
 
+  updatingCashierAdm(user, data) {
+    return this.http.put(`http://localhost:3000/user/${user._id}`, data)
+    .map(res => {
+      return res.json();
+    })
+    .catch(this.handleError);
+  }
+
   getAllUser() {
     return this.http.get(`http://localhost:3000/user/all`)
       .map((res) => {

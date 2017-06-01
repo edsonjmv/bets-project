@@ -24,10 +24,11 @@ export class AdminListComponent implements OnInit {
              if (this.user === undefined) {
                this.router.navigate(['/login']);
              }
+             if (this.user.admin === false) {
+               this.router.navigate(['/']);
+             }
           }
        );
-
-
     this.getAll();
   }
 

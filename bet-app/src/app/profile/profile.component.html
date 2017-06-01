@@ -10,7 +10,8 @@
             <h2>{{user.cashier | currency:'EUR':true }}</h2>
             <p></p>
             <a routerLink="/edit-profile" class="btn btn-lg btn-success btn-block">Edit my profile</a>
-              <a *ngIf="user.admin" class="btn btn-primary admin-butt" routerLink="/admin-list">Admin List</a>
+              <a *ngIf="user.admin" class="btn btn-primary admin-butt" routerLink="/admin-list">Admin Lists</a>
+              <a *ngIf="user.admin" class="btn btn-primary admin-butt" routerLink="/admin-users">Admin Users</a>
           </form>
         </div>
       </div>

@@ -9,7 +9,7 @@ import {ProfileComponent} from './profile/profile.component';
 import {EditProfileComponent} from './edit-profile/edit-profile.component';
 import {AdminListComponent} from './admin-list/admin-list.component';
 import {EditOddComponent} from './edit-odd/edit-odd.component';
-
+import {AdminUsersComponent} from './admin-users/admin-users.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -21,6 +21,7 @@ export const routes: Routes = [
   { path: 'profile', component: ProfileComponent },
   { path: 'edit-profile', component: EditProfileComponent },
   { path: 'admin-list', component: AdminListComponent },
+  { path: 'admin-users', component: AdminUsersComponent },
   { path: 'odd/:id', component: EditOddComponent },
   { path: '**', redirectTo: '' }
 ];

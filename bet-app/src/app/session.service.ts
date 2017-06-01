@@ -69,5 +69,16 @@ export class SessionService {
     .catch(this.handleError);
   }
 
+  getAllUser() {
+    return this.http.get(`http://localhost:3000/user/all`)
+      .map((res) => {
+        return res.json()
+      });
+  }
+
+  removeSingleUser(id) {
+    return this.http.delete(`http://localhost:3000/user/${id}`)
+      .map((res) => res.json());
+  }
 
 }

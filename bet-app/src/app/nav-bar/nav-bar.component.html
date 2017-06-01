@@ -18,7 +18,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li *ngIf="!user"><a routerLink="login">Login</a></li>
         <li *ngIf="!user"><a routerLink="signup">Signup</a></li>
-        <li *ngIf="user"><a routerLink="profile">{{user.name}} <img style="margin: 0 10px 0" width="20" height="20" src="https://www.b2match.eu/assets/avatar-4761a497f0ab9966adfac5a1caf3fe0da770d91c1358e24b76320108fb4e190d.png" alt=""> {{user.cashier | currency:'EUR':true }} {{money}}</a></li>
+        <li *ngIf="user"><a routerLink="profile">{{user.name}} <img style="margin: 0 10px 0" width="20" height="20" src="https://www.b2match.eu/assets/avatar-4761a497f0ab9966adfac5a1caf3fe0da770d91c1358e24b76320108fb4e190d.png" alt=""> {{user.cashier | currency:'EUR':true }}</a></li>
         <li *ngIf="user"><a routerLink="/" (click)='logout()'>Logout</a></li>
       </ul>
     </div>

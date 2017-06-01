@@ -3,10 +3,12 @@ import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import * as _ from "lodash";
 import { Observable } from 'rxjs/Rx';
+import { environment }  from '../environments/environment';
+
 
 @Injectable()
 export class OddService {
-  BASE_URL: string = 'http://localhost:3000';
+  BASE_URL:string = environment.baseurl;
 
   constructor(private http: Http) { }
 

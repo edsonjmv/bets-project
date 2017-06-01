@@ -3,11 +3,12 @@ import { Http } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
+import { environment }  from '../environments/environment';
 
 @Injectable()
 export class TicketService {
   handleError: any;
-  BASE_URL: string = 'http://localhost:3000';
+  BASE_URL:string = environment.baseurl;
   cashierEvent = new EventEmitter<any>();
 
   constructor(private http: Http) { }

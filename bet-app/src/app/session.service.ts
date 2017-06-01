@@ -3,10 +3,11 @@ import { Http, Response } from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import { Observable } from 'rxjs/Rx';
+import { environment }  from '../environments/environment';
 
 @Injectable()
 export class SessionService {
-  BASE_URL: string = 'http://localhost:3000/auth';
+  BASE_URL:string = environment.baseurl;
   loggedUser: any;
 
   loginEvent = new EventEmitter<any>();
@@ -22,7 +23,7 @@ export class SessionService {
   }
 
   signup(user) {
-    return this.http.post(`${this.BASE_URL}/signup`, user, { withCredentials: true })
+    return this.http.post(`${this.BASE_URL}/auth/signup`, user, { withCredentials: true })
     .map(res => {
       this.loginEvent.emit(res.json());
       return res => res.json();
@@ -31,7 +32,7 @@ export class SessionService {
   }
 
   login(user) {
-    return this.http.post(`${this.BASE_URL}/login`, user, { withCredentials: true })
+    return this.http.post(`${this.BASE_URL}/auth/login`, user, { withCredentials: true })
       .map(res => {
         this.loginEvent.emit(res.json());
         return res => res.json();
@@ -40,7 +41,7 @@ export class SessionService {
   }
 
   logout() {
-    return this.http.post(`${this.BASE_URL}/logout`, {}, { withCredentials: true })
+    return this.http.post(`${this.BASE_URL}/auth/logout`, {}, { withCredentials: true })
     .map(res => {
       this.loginEvent.emit(res.json());
       return res => res.json();
@@ -49,19 +50,19 @@ export class SessionService {
   }
 
   isLoggedIn() {
-    return this.http.get(`${this.BASE_URL}/loggedin`, { withCredentials: true })
+    return this.http.get(`${this.BASE_URL}/auth/loggedin`, { withCredentials: true })
     .map(res => res.json())
     .catch(this.handleError);
   }
 
   getPrivateData() {
-    return this.http.get(`${this.BASE_URL}/private`, { withCredentials: true })
+    return this.http.get(`${this.BASE_URL}/auth/private`, { withCredentials: true })
       .map(res => res.json())
       .catch(this.handleError);
   }
 
   editCashier(user, data) {
-    return this.http.put(`http://localhost:3000/user/${user._id}`, data)
+    return this.http.put(`${this.BASE_URL}/user/${user._id}`, data)
     .map(res => {
       this.loginEvent.emit(res.json());
       return res => res.json();
@@ -70,7 +71,7 @@ export class SessionService {
   }
 
   updatingCashierAdm(user, data) {
-    return this.http.put(`http://localhost:3000/user/${user._id}`, data)
+    return this.http.put(`${this.BASE_URL}/user/${user._id}`, data)
     .map(res => {
       return res.json();
     })
@@ -78,14 +79,14 @@ export class SessionService {
   }
 
   getAllUser() {
-    return this.http.get(`http://localhost:3000/user/all`)
+    return this.http.get(`${this.BASE_URL}/user/all`)
       .map((res) => {
         return res.json()
       });
   }
 
   removeSingleUser(id) {
-    return this.http.delete(`http://localhost:3000/user/${id}`)
+    return this.http.delete(`${this.BASE_URL}/user/${id}`)
       .map((res) => res.json());
   }
 

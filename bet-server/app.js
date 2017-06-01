@@ -11,8 +11,6 @@ const passport = require('passport');
 const mongoose = require('mongoose');
 const MongoStore = require('connect-mongo')(session);
 
-require('dotenv').load();
-
 require('./configs/database');
 require('./config/passport')(passport);
 

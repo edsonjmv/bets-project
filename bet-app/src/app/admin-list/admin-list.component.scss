@@ -1,4 +1,15 @@
 $white: #fff;
+$link-back: ('http://redboxpictures.com/commercial/wp-content/uploads/2011/01/spring-sports-prep-seattle-composite-web-1763x800.jpg');
+$transp-back: rgba(26, 26, 26, .7);
+$black: #000;
+$back-color: #1a1a1a;
+
+.main-box {
+  background: linear-gradient(0deg, $transp-back, $transp-back), url($link-back);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 600px;
+}
 
 .listing {
   border-radius: 10px;
@@ -23,4 +34,13 @@ $white: #fff;
 .head-btn {
   text-align: center;
   width: 100%;
+}
+
+.btn-ad {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.admin-butt {
+  margin: 0 10px;
 }

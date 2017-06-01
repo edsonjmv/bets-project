@@ -12,12 +12,12 @@ $login-title: #555;
 $wall-shadow: rgba(0, 0, 0, .3);
 $red: #f00;
 
-// .main-form {
-//   background: linear-gradient(0deg, $transp-back, $transp-back), url($link-back);
-//   background-repeat: no-repeat;
-//   background-size: cover;
-//   height: 600px;
-// }
+.main-form {
+  background: linear-gradient(0deg, $transp-back, $transp-back), url($link-back);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 600px;
+}
 
 .login-form {
   margin-top: 15px;

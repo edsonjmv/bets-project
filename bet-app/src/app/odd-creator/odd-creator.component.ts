@@ -40,8 +40,6 @@ export class OddCreatorComponent implements OnInit {
              }
           }
        );
-
-
   }
 
   createNewOdd() {

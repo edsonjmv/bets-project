@@ -13,8 +13,6 @@ export class MainBarComponent implements OnInit {
   odds;
   highlightedDiv: boolean = false;
   highlighted2Div: boolean = false;
-  showStyle: false;
-  showStyle2: false;
 
   constructor(private oddServ: OddService) { }
 

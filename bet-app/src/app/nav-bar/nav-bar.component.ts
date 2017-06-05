@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { SessionService } from '../session.service';
-import { TicketService } from '../ticket.service'
+import { TicketService } from '../ticket.service';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-nav-bar',
@@ -24,8 +25,6 @@ export class NavBarComponent implements OnInit {
            this.user = user;
           }
        );
-
-      // this.ticket.cashierEvent.subscribe(money => this.money = money.cashier);
   }
 
   logout() {
